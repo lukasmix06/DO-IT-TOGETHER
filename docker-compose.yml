@@ -1,0 +1,21 @@
+version: '3'
+
+services: 
+    web:
+      build:
+        context: . #miejsce, z którego odczytujemy ścieżkę, tutaj z roota
+        dockerfile: docker/nginx/Dockerfile
+      ports:
+        - "8080:80"
+      volumes:
+        - .:/app/
+      links:
+        - php   #zależności między kontenerami, które usługi powiążemy z serwisem
+
+    php:
+        build:
+            context: .
+            dockerfile: docker/php/Dockerfile
+        volumes:
+            - .:/app/
+      
