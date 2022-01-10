@@ -1,0 +1,225 @@
+body {
+    margin: 0;
+    
+}
+
+* {
+    font-size: 12px;
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    background: transparent linear-gradient(180deg, #B400FF 0%, #5A0080 100%) 0% 0% no-repeat padding-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: auto
+}
+
+.logo#big {
+    width: 70%;
+    height: 17em;
+    /*text-align: center;*/
+    background-image: url("../img/logo2.png");
+    background-size: 100% 100%;
+    opacity: 1;
+}
+
+.text-component {
+    transform: matrix(0.93, -0.26, 0.14, 0.9, 0, 0);
+}
+
+.logo-text {
+    font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-normal) 60px/80px var(--unnamed-font-family-segoe-ui);
+    letter-spacing: var(--unnamed-character-spacing-0);
+    color: var(--unnamed-color-ffffff);
+    text-align: center;
+    font: normal normal normal 51px/60px Segoe UI;
+    letter-spacing: 0px;
+    color: #FFFFFF;
+    text-shadow: 0px 3px 6px #00000029;
+    opacity: 1;
+}
+
+#text2 {
+    position: absolute;
+    top: 0.1em;
+    right: 0.1em;
+    left: 0em;
+    bottom: 0em;
+    
+}
+
+.login-container {
+    width: 50%;
+    text-align: center;
+}
+
+
+
+form.login {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /*width: 80%;*/
+    height: 49vh;
+
+    border: 1px solid var(--unnamed-color-707070);
+    background: #FBFBFBF0 0% 0% no-repeat padding-box;
+    box-shadow: 0px 20px 20px #000000D6;
+    border: 1px solid #707070;
+    border-radius: 47px;
+    opacity: 0.92; 
+}
+
+button {
+    background: transparent linear-gradient(180deg, #B400FF 0%, #5A0080 100%) 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 6px #00000029;
+    border-radius: 27px;
+    border: none;
+    color: snow;
+    margin: 0.5em;
+    padding: 0.5em;
+    line-height: 2.5em;
+    font: normal normal normal 29px/39px Candara;
+    letter-spacing: 2px;
+}
+
+input {
+    border: none;
+    padding: 0.5em;
+    margin: 0.5em;
+    width: 85%;
+    font-size: 17px;
+}
+
+
+
+@media only screen and (max-device-width: 420px) {
+    * {
+        font-size: 36px; /*jednostki em będą według tego skalowane*/
+    }
+    
+    .login-container, .logo {
+        width: 100%;
+    }
+    
+    form {
+        margin: auto;
+    }
+    
+    img {
+        height: 7em;
+        margin: 2em;
+    }
+}
+
+.base-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 100vh;
+}
+
+nav {
+    width: 100%;
+    height: 15vh;
+    background: transparent linear-gradient(180deg, #B400FF 0%, #5A0080 100%) 0% 0% no-repeat padding-box;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+}
+
+nav > img {
+    width: 12vw;
+    margin: 0.2em 0em;
+}
+
+a {
+    text-decoration: none;
+    /*display: inline-block;*/
+    /*line-height: 2em;*/
+}
+
+li i {
+    font-size: 3em;
+}
+
+nav .button {
+    background: var(--unnamed-color-ffffff) 0% 0% no-repeat padding-box;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border-radius: 0.5em;
+    opacity: 0.88;
+    margin-left: 0.3em;
+    text-align: center;
+    letter-spacing: 1px;
+    font: normal normal normal 19px/22px Candara;
+    color: #5A0080;
+    padding: 0.3em;
+}
+
+
+ul {
+    list-style-type: none;
+    color: white;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-self: center;
+    padding: 0;
+}
+
+li {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+    height: 100%;
+    align-self: center;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 1em 2em;
+    border-bottom: 1px solid gray;
+}
+
+.search-bar {
+    width: 70%;
+}
+
+.search-bar>form>input {
+    background: var(--unnamed-color-ffffff) 0% 0% no-repeat padding-box;
+    border: 1px solid var(--unnamed-color-707070);
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 6px #00000029;
+    border: 1px solid #707070;
+    border-radius: 29px;
+    width: 100%;
+    text-align: center;
+    color: gray;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.add-activity {
+    background: transparent linear-gradient(180deg, #B400FF 0%, #5A0080 100%) 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 6px #00000029;
+    border-radius: 15px;
+    color: white;
+    letter-spacing: 0.1em;
+    text-align: center;
+    width: 20%;
+    align-items: center;
+}
+
+.add-project > i {
+    padding: 1em;
+}
