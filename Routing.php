@@ -2,24 +2,34 @@
 
 require_once 'src/controllers/DefaultController.php';
 
-class Router {
+class Routing {
+    public static $routes; //tablica przechowująca url oraz odpowiednio do niego otwartego kontrolera
 
-  public static $routes;
-
-  public static function get($url, $view) {
-    self::$routes[$url] = $view;
-  }
-
-  public static function run ($url) {
-    $action = explode("/", $url)[0];
-    if (!array_key_exists($action, self::$routes)) {
-      die("Wrong url!");
+    public static function get($url, $controller) {
+        self::$routes[$url] = $controller;
     }
 
-    $controller = self::$routes[$action];
-    $object = new $controller;
-    $action = $action ?: 'index';
+    public static function run ($url) {
+        $action = explode("/", $url)[0];
 
-    $object->$action();
-  }
+        if (!array_key_exists($action, self::$routes)) { //sprawdzamy, czy istnieje klucz
+            die("Wrong url!"); //die zatrzyma działanie interpretera
+        }
+
+        $controller = self::$routes[$action];
+        $object = new $controller; //pod controller będzie string, można tak tworzyć obiekty w php
+        
+        /*$action = $action ?: 'index';*/
+
+        $object->$action();
+    }
 }
+
+
+
+
+
+
+
+
+?>
