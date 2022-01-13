@@ -2,6 +2,7 @@
 
 require_once 'src/controllers/DefaultController.php';
 require_once 'src/controllers/SecurityController.php';
+require_once 'src/controllers/ActivityController.php';
 
 class Routing {
     public static $routes; //tablica przechowująca url oraz odpowiednio do niego otwartego kontrolera

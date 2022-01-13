@@ -8,7 +8,9 @@ $path = parse_url($path, PHP_URL_PATH);
 
 Routing::get('', 'DefaultController');
 Routing::get('activities', 'DefaultController');
-Routing::get('login', 'SecurityController');
+Routing::post('login', 'SecurityController');
+Routing::post('addActivity', 'ActivityController');
+
 
 Routing::run($path);
 

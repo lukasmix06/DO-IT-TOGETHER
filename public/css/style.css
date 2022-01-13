@@ -87,7 +87,7 @@ button {
     letter-spacing: 2px;
 }
 
-input {
+input, textarea {
     border: none;
     padding: 0.5em;
     margin: 0.5em;

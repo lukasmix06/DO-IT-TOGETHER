@@ -48,10 +48,10 @@
             </header>
             <section class="activities">
                 <div id="activity-1">
-                    <img src="public/img/uploads/cycling.jpg">
+                    <img src="public/uploads/<?= $activity->getImage() ?>">
                     <div>
-                        <h2>Title</h2>
-                        <p>Description</p>
+                        <h2><?= $activity->getTitle() ?></h2>
+                        <p><?= $activity->getDescription() ?></p>
                         <div class="social-section">
                             <i class="fas fa-heart"> 500</i>
                             <i class="fas fa-minus-square"> 232</i>
