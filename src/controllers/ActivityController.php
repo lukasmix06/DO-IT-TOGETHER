@@ -2,6 +2,7 @@
 
 require_once "AppController.php";
 require_once __DIR__.'/../models/Activity.php';
+require_once __DIR__.'/../repository/ActivityRepository.php';
 
 class ActivityController extends AppController {
 
@@ -10,6 +11,14 @@ class ActivityController extends AppController {
     const UPLOAD_DIRECTORY = "/../public/uploads/";
 
     private $messages = []; //będziemy tu dodawali nasze zmienne
+    private $activityRepository;
+
+    public function __construct()
+    {
+        parent::__construct();
+        $this->activityRepository = new ActivityRepository();
+    }
+
 
     public function addActivity() {
 
@@ -21,7 +30,8 @@ class ActivityController extends AppController {
             );
 
             $activity = new Activity($_POST['title'], $_POST['description'], $_POST['place'], $_POST['sport'], $_POST['date'], $_POST['time'], $_FILES['file']['name']);
-
+            $this->activityRepository->addActivity($activity);
+            //trzeba jeszcze zaimplementować wyświetlanie projektów z bazy
             return $this->render("activities", ['messages' => $this->messages, 'activity'=>$activity]);
         }
 
