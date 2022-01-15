@@ -10,6 +10,22 @@ class ActivityController extends AppController {
     const UPLOAD_DIRECTORY = "/../public/uploads/";
 
     private $messages = []; //będziemy tu dodawali nasze zmienne
+<<<<<<< Updated upstream
+=======
+    private $activityRepository;
+
+    public function __construct()
+    {
+        parent::__construct();
+        $this->activityRepository = new ActivityRepository();
+    }
+
+    public function activities()
+    {
+        $activities = $this->activityRepository->getActivities();
+        $this->render('activities', ['activities' => $activities]);
+    }
+>>>>>>> Stashed changes
 
     public function addActivity() {
 
@@ -21,8 +37,14 @@ class ActivityController extends AppController {
             );
 
             $activity = new Activity($_POST['title'], $_POST['description'], $_POST['place'], $_POST['sport'], $_POST['date'], $_POST['time'], $_FILES['file']['name']);
+<<<<<<< Updated upstream
 
             return $this->render("activities", ['messages' => $this->messages, 'activity'=>$activity]);
+=======
+            $this->activityRepository->addActivity($activity);
+            //trzeba jeszcze zaimplementować wyświetlanie projektów z bazy
+            return $this->render("activities", ['messages' => $this->messages, 'activities' => $this->activityRepository->getActivities()]);
+>>>>>>> Stashed changes
         }
 
         $this->render('add-activity', ['messages' => $this->messages]);
@@ -42,4 +64,6 @@ class ActivityController extends AppController {
 
         return true;
     }
+
+
 }
