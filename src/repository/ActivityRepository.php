@@ -52,8 +52,6 @@ class ActivityRepository extends Repository
         ]);
 
     }
-<<<<<<< HEAD
-=======
 
     public function getActivities(): array
     {
@@ -79,5 +77,4 @@ class ActivityRepository extends Repository
 
         return $result;
     }
->>>>>>> activities
 }
