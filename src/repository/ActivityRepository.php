@@ -52,4 +52,32 @@ class ActivityRepository extends Repository
         ]);
 
     }
+<<<<<<< HEAD
+=======
+
+    public function getActivities(): array
+    {
+        $result = [];
+
+        $statement = $this->database->connect()->prepare('
+            SELECT * FROM activities
+        ');
+        $statement->execute();
+        $activities = $statement->fetchAll(PDO::FETCH_ASSOC); //zamiast samego fetch
+
+        foreach($activities as $activity) {
+            $result[] = new Activity(
+                $activity['title'],
+                $activity['description'],
+                $activity['place_coordinates'],
+                $activity['sport'],
+                $activity['date'],
+                $activity['time'],
+                $activity['image']
+            );
+        }
+
+        return $result;
+    }
+>>>>>>> activities
 }

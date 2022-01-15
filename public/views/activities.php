@@ -47,6 +47,7 @@
                 </div>
             </header>
             <section class="activities">
+                <?php foreach($activities as $activity): ?>
                 <div id="activity-1">
                     <img src="public/uploads/<?= $activity->getImage() ?>">
                     <div>
@@ -58,61 +59,7 @@
                         </div>
                     </div>
                 </div>
-                <div id="activity-2">
-                    <img src="public/img/uploads/sport.jpg">
-                    <div>
-                        <h2>Title</h2>
-                        <p>Description</p>
-                        <div class="social-section">
-                            <i class="fas fa-heart"> 500</i>
-                            <i class="fas fa-minus-square"> 232</i>
-                        </div>
-                    </div>
-                </div>                
-                <div id="activity-3">
-                    <img src="public/img/uploads/cycling.jpg">
-                    <div>
-                        <h2>Title</h2>
-                        <p>Description</p>
-                        <div class="social-section">
-                            <i class="fas fa-heart"> 500</i>
-                            <i class="fas fa-minus-square"> 232</i>
-                        </div>
-                    </div>
-                </div>                
-                <div id="activity-4">
-                    <img src="public/img/uploads/cycling.jpg">
-                    <div>
-                        <h2>Title</h2>
-                        <p>Description</p>
-                        <div class="social-section">
-                            <i class="fas fa-heart"> 500</i>
-                            <i class="fas fa-minus-square"> 232</i>
-                        </div>
-                    </div>
-                </div>                
-                <div id="activity-5">
-                    <img src="public/img/uploads/cycling.jpg">
-                    <div>
-                        <h2>Title</h2>
-                        <p>Description</p>
-                        <div class="social-section">
-                            <i class="fas fa-heart"> 500</i>
-                            <i class="fas fa-minus-square"> 232</i>
-                        </div>
-                    </div>
-                </div>
-                <div id="activity-6">
-                    <img src="public/img/uploads/cycling.jpg">
-                    <div>
-                        <h2>Title</h2>
-                        <p>Description</p>
-                        <div class="social-section">
-                            <i class="fas fa-heart"> 500</i>
-                            <i class="fas fa-minus-square"> 232</i>
-                        </div>
-                    </div>
-                </div>
+                <?php endforeach; ?>
             </section>
             <section class="map">
             </section>

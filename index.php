@@ -7,9 +7,10 @@ $path = trim($path, '/'); //chemy się pozbyć pierwszego slasha
 $path = parse_url($path, PHP_URL_PATH);
 
 Routing::get('', 'DefaultController');
-Routing::get('activities', 'DefaultController');
+Routing::get('activities', 'ActivityController');
 Routing::post('login', 'SecurityController');
 Routing::post('addActivity', 'ActivityController');
+Routing::post('register', 'SecurityController');
 
 
 Routing::run($path);

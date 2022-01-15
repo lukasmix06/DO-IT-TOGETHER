@@ -2,12 +2,21 @@
 
 require_once "Repository.php";
 require_once __DIR__.'/../models/User.php';
+<<<<<<< HEAD
 //* FROM Users WHERE email = :email
+=======
+
+>>>>>>> activities
 class UserRepository extends Repository
 {
     public function getUser(string $email): ?User {
         $statement = $this->database->connect()->prepare("
+<<<<<<< HEAD
             SELECT * FROM users where email = :email
+=======
+            SELECT * FROM users u LEFT JOIN users_details ud 
+            ON u.id_user_details = ud.id where email = :email
+>>>>>>> activities
             ");
         $statement->bindParam(':email', $email, PDO::PARAM_STR);
         $statement->execute();
@@ -17,7 +26,11 @@ class UserRepository extends Repository
             return null; //zamiast zwracać null lepiej zwracać exception, który będzie odbierany w metodzie login
         }
 
+<<<<<<< HEAD
         return new User (
+=======
+        return new User(
+>>>>>>> activities
             $user['email'],
             $user['password'],
             $user['name'],
