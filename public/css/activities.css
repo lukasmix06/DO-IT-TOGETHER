@@ -41,3 +41,15 @@ section {
     display: flex;
     justify-content: space-between;
 }
+
+section.activity-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.activity-form > form {
+    display:flex;
+    flex-direction: column;
+}
+
