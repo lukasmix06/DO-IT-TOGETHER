@@ -77,4 +77,18 @@ class ActivityRepository extends Repository
 
         return $result;
     }
+
+    public function getActivityByTitle(string $searchedFraze)
+    {
+        $searchedFraze = '%'.strtolower($searchedFraze).'%';
+        //dać wyszukiwanie po większej ilosci parametrów
+        $statement = $this->database->connect()->prepare('
+            SELECT * FROM activities WHERE LOWER(title) LIKE :search OR 
+                                           LOWER(description) LIKE :search
+        ');
+        $statement->bindParam(':search', $searchedFraze, PDO::PARAM_STR);
+        $statement->execute();
+
+        return $statement->fetchAll(PDO::FETCH_ASSOC);
+    }
 }

@@ -4,6 +4,7 @@
     <link rel="stylesheet" type="text/css" href="public/css/style.css">
     <link rel="stylesheet" type="text/css" href="public/css/activities.css">
     <script src="https://kit.fontawesome.com/11ac319bc2.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="./public/js/searching.js" defer></script>
     <title>ACTIVITIES</title>
 </head>
 
@@ -37,9 +38,7 @@
         <main>
             <header>
                 <div class="search-bar">
-                    <form>
-                        <input placeholder="wyszukaj aktywność">
-                    </form>
+                    <input placeholder="wyszukaj aktywność">
                 </div>
                 <div class="add-activity">
                     <i class="fas fa-plus"></i> 
@@ -66,3 +65,17 @@
         </main>
     </div>
 </body>
+
+<template id="activity-template">
+    <div id="">
+        <img src="">
+        <div>
+            <h2>title</h2>
+            <p>description</p>
+            <div class="social-section">
+                <i class="fas fa-heart"> 500</i>
+                <i class="fas fa-minus-square"> 232</i>
+            </div>
+        </div>
+    </div>
+</template>

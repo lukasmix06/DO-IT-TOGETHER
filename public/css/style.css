@@ -195,7 +195,8 @@ header {
     width: 70%;
 }
 
-.search-bar>form>input {
+
+.search-bar>input {
     background: var(--unnamed-color-ffffff) 0% 0% no-repeat padding-box;
     border: 1px solid var(--unnamed-color-707070);
     background: #FFFFFF 0% 0% no-repeat padding-box;
