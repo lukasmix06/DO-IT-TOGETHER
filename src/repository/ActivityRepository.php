@@ -71,7 +71,10 @@ class ActivityRepository extends Repository
                 $activity['sport'],
                 $activity['date'],
                 $activity['time'],
-                $activity['image']
+                $activity['image'],
+                $activity['participants'],
+                $activity['participants_max'],
+                $activity['id']
             );
         }
 
@@ -90,5 +93,25 @@ class ActivityRepository extends Repository
         $statement->execute();
 
         return $statement->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function participate(int $id)
+    {
+        $statement = $this->database->connect()->prepare('
+            UPDATE activities SET participants = participants + 1 WHERE id = :id AND participants<=activities.participants_max
+        ');
+
+        $statement->bindParam(':id', $id, PDO::PARAM_INT);
+        $statement->execute();
+    }
+
+    public function unparticipate(int $id)
+    {
+        $statement = $this->database->connect()->prepare('
+            UPDATE activities SET participants = participants - 1 WHERE id = :id AND participants>=0
+        ');
+
+        $statement->bindParam(':id', $id, PDO::PARAM_INT);
+        $statement->execute();
     }
 }

@@ -60,6 +60,16 @@ class ActivityController extends AppController {
         }
     }
 
+    public function participate(int $id) {
+        $this->activityRepository->participate($id);
+        http_response_code(200); //nie trzeba wysyłąć żadnej informacji zwrotnej poza tym
+    }
+
+    public function unparticipate(int $id) {
+        $this->activityRepository->unparticipate($id);
+        http_response_code(200);
+    }
+
     private function validate(array $file): bool
     {
         if($file['size'] > self::MAX_FILE_SIZE) {

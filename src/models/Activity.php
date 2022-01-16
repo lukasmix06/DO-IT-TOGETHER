@@ -10,8 +10,11 @@ class Activity
     private $date;
     private $time;
     private $image;
+    private $participants;
+    private $participants_max;
+    private $id;
 
-    public function __construct($title, $description, $place, $sport, $date, $time, $image)
+    public function __construct($title, $description, $place, $sport, $date, $time, $image, $participants=0, $participants_max=5, $id=null)
     {
         $this->title = $title;
         $this->description = $description;
@@ -20,6 +23,9 @@ class Activity
         $this->date = $date;
         $this->time = $time;
         $this->image = $image;
+        $this->participants = $participants;
+        $this->participants_max = $participants_max;
+        $this->id = $id;
     }
 
     public function getTitle(): string
@@ -93,6 +99,37 @@ class Activity
     public function setImage(string $image)
     {
         $this->image = $image;
+    }
+
+    public function getParticipants()
+    {
+        return $this->participants;
+    }
+
+    public function setParticipants($participants): void
+    {
+        $this->participants = $participants;
+    }
+
+
+    public function getParticipantsMax()
+    {
+        return $this->participants_max;
+    }
+
+    public function setParticipantsMax($participants_max): void
+    {
+        $this->participants_max = $participants_max;
+    }
+
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    public function setId($id): void
+    {
+        $this->id = $id;
     }
 
 }

@@ -17,7 +17,8 @@ class Routing {
 
 
     public static function run ($url) {
-        $action = explode("/", $url)[0];
+        $urlParts = explode("/", $url);
+        $action = $urlParts[0];
 
         if (!array_key_exists($action, self::$routes)) { //sprawdzamy, czy istnieje klucz
             die("Wrong url!"); //die zatrzyma działanie interpretera
@@ -28,7 +29,8 @@ class Routing {
         
         $action = $action ?: 'index';
 
-        $object->$action();
+        $id = $urlParts[1] ?? ''; //sprawdzamy, czy nie jest nullem
+        $object->$action($id);
     }
 }
 

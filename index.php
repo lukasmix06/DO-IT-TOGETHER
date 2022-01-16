@@ -12,6 +12,8 @@ Routing::post('login', 'SecurityController');
 Routing::post('addActivity', 'ActivityController');
 Routing::post('register', 'SecurityController');
 Routing::post('search', 'ActivityController');
+Routing::get('participate','ActivityController');
+Routing::get('unparticipate','ActivityController');
 
 Routing::run($path);
 

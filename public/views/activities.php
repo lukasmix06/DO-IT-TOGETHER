@@ -5,6 +5,7 @@
     <link rel="stylesheet" type="text/css" href="public/css/activities.css">
     <script src="https://kit.fontawesome.com/11ac319bc2.js" crossorigin="anonymous"></script>
     <script type="text/javascript" src="./public/js/searching.js" defer></script>
+    <script type="text/javascript" src="./public/js/participation.js" defer></script>
     <title>ACTIVITIES</title>
 </head>
 
@@ -47,14 +48,15 @@
             </header>
             <section class="activities">
                 <?php foreach($activities as $activity): ?>
-                <div id="activity-1">
+                <div id="<?= $activity->getId(); ?>">
                     <img src="public/uploads/<?= $activity->getImage() ?>">
                     <div>
                         <h2><?= $activity->getTitle() ?></h2>
                         <p><?= $activity->getDescription() ?></p>
                         <div class="social-section">
-                            <i class="fas fa-heart"> 500</i>
-                            <i class="fas fa-minus-square"> 232</i>
+                            <i id="join" class="fas fa-male">
+                                <?= $activity->getParticipants()." / ",$activity->getParticipantsMax() ?>
+                            </i>
                         </div>
                     </div>
                 </div>
