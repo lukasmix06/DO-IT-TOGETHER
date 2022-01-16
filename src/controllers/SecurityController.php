@@ -6,26 +6,24 @@ require_once __DIR__.'/../repository/UserRepository.php';
 
 class SecurityController extends AppController
 {
-    public function login() {
+    private $user_repository;
 
-        private $user_repository;
+    public function __construct()
+    {
+        parent::__construct();
+        $this->user_repository = new UserRepository();
+    }
 
-        public function __construct()
-        {
-            parent::__construct();
-            $this->userRepository = new UserRepository();
-        }
-
-        $user_repository = new UserRepository();
-
+    public function login()
+    {
         if($this->isGet()) { //!$this->isPost()
             return $this->render('login');
         }
 
         $email = $_POST["email"];
-        $password = $_POST["password"];
+        $password = md5($_POST['password']);
 
-        $user = $user_repository->getUser($email);
+        $user = $this->user_repository->getUser($email);
         //$user = new User("lukasmix06@gmail.com","kopytko","Lukasz","Jasielski");
 
         if(!$user) {
@@ -43,5 +41,31 @@ class SecurityController extends AppController
         // return $this->render('activities');
         $url = "http://$_SERVER[HTTP_HOST]";
         header("Location: {$url}/activities");
+    }
+
+
+    public function register()
+    {
+        if (!$this->isPost()) {
+            return $this->render('register');
+        }
+
+        $email = $_POST['email'];
+        $password = $_POST['password'];
+        $confirmedPassword = $_POST['confirmedPassword'];
+        $name = $_POST['name'];
+        $surname = $_POST['surname'];
+        $phone = $_POST['phone'];
+
+        if ($password !== $confirmedPassword) {
+            return $this->render('register', ['messages' => ['Hasła muszą być takie same!']]);
+        }
+
+        //TODO try to use better hash function
+        $user = new User($email, md5($password), $name, $surname, $phone);
+
+        $this->user_repository->addUser($user);
+
+        return $this->render('login', ['messages' => ['Gratulacje, zostałeś nowym użytkownikiem!']]);
     }
 }

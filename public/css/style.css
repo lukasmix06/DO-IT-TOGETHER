@@ -223,3 +223,9 @@ header {
 .add-project > i {
     padding: 1em;
 }
+
+.no-valid {
+    border: 2px solid red;
+    box-shadow: 0 0 0.3em red;
+    outline: none;
+}
