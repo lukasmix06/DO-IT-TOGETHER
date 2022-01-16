@@ -8,6 +8,14 @@ class SecurityController extends AppController
 {
     public function login() {
 
+        private $user_repository;
+
+        public function __construct()
+        {
+            parent::__construct();
+            $this->userRepository = new UserRepository();
+        }
+
         $user_repository = new UserRepository();
 
         if($this->isGet()) { //!$this->isPost()
