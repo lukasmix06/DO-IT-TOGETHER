@@ -8,14 +8,14 @@ function reactToActivity() {
     if(participation.id === "join") {
         fetch(`/participate/${id}`)
             .then(function() {
-                participation.innerHTML = parseInt(participation.innerHTML) + 1;
+                participation.innerHTML = (parseInt(participation.innerHTML) + 1);
             })
         participation.id = "resign";
     }
     else {
         fetch(`/unparticipate/${id}`)
             .then(function() {
-                participation.innerHTML = parseInt(participation.innerHTML) - 1;
+                participation.innerHTML = (parseInt(participation.innerHTML) - 1);
             })
         participation.id = "join";
     }

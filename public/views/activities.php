@@ -57,8 +57,9 @@
                         <p><?= $activity->getDescription() ?></p>
                         <div class="social-section">
                             <i id="join" class="fas fa-male">
-                                <?= $activity->getParticipants()." / ",$activity->getParticipantsMax() ?>
+                                <?= $activity->getParticipants() ?>
                             </i>
+                            <?= " / ",$activity->getParticipantsMax() ?>
                         </div>
                     </div>
                 </div>
