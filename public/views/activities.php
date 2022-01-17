@@ -20,7 +20,7 @@
                 </li>
                 <li>
                     <i class="fas fa-bahai"></i>
-                    <a href="#" class="button">Aktywności</a>
+                    <a href="activities" class="button">Aktywności</a>
                 </li>
                 <li>
                     <i class="fas fa-user-friends"></i>
@@ -31,8 +31,8 @@
                     <a href="#" class="button">Wiadomości</a>
                 </li>
                 <li>
-                    <i class="fas fa-cog"></i>
-                    <a href="#" class="button">Ustawienia</a>
+                    <i class="fas fa-sign-out-alt"></i>
+                    <a href="login" class="button">Wyloguj</a>
                 </li>
             </ul>
         </nav>
@@ -42,8 +42,10 @@
                     <input placeholder="wyszukaj aktywność">
                 </div>
                 <div class="add-activity">
-                    <i class="fas fa-plus"></i> 
-                    Dodaj
+                    <a href="addActivity">
+                        <i class="fas fa-plus"></i>
+                        Dodaj
+                    </a>
                 </div>
             </header>
             <section class="activities">

@@ -48,7 +48,6 @@ body {
     right: 0.1em;
     left: 0em;
     bottom: 0em;
-    
 }
 
 .login-container {
@@ -214,11 +213,22 @@ header {
     background: transparent linear-gradient(180deg, #B400FF 0%, #5A0080 100%) 0% 0% no-repeat padding-box;
     box-shadow: 0px 3px 6px #00000029;
     border-radius: 15px;
-    color: white;
     letter-spacing: 0.1em;
     text-align: center;
     width: 20%;
+    display: flex;
     align-items: center;
+    justify-content: center;
+}
+
+.add-activity > a {
+    color: white;
+    font-size: 2em;
+}
+
+.fa-plus {
+    margin-right: 1em;
+    font-size: x-large;
 }
 
 .add-project > i {
