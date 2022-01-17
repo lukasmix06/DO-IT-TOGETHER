@@ -21,7 +21,7 @@ class SecurityController extends AppController
         }
 
         $email = $_POST["email"];
-        $password = md5($_POST['password']);
+        $password = sha1($_POST['password']);
 
         $user = $this->user_repository->getUser($email);
         //$user = new User("lukasmix06@gmail.com","kopytko","Lukasz","Jasielski");
@@ -61,8 +61,7 @@ class SecurityController extends AppController
             return $this->render('register', ['messages' => ['Hasła muszą być takie same!']]);
         }
 
-        //TODO try to use better hash function
-        $user = new User($email, md5($password), $name, $surname, $phone);
+        $user = new User($email, sha1($password), $name, $surname, $phone);
 
         $this->user_repository->addUser($user);
 
