@@ -10,7 +10,8 @@ body {
 
 .container {
     width: 100vw;
-    height: 100vh;
+    height: 100%;
+    min-height: 100vh;
     background-image: url("../img/output-onlinepngtools.png");
     background-color: white;
     opacity: 1;
@@ -29,6 +30,8 @@ body {
     background-image: url("../img/logo2.png");
     background-size: 100% 100%;
     opacity: 1;
+    display: flex;
+    justify-content: center;
 }
 
 .text-component {
@@ -108,27 +111,36 @@ input, textarea {
         font-size: 36px; /*jednostki em będą według tego skalowane*/
     }
 
-    .container {
-        justify-content: center;
-    }
-
-    .logo {
-        width: 100%;
-        font-size: 12px;
+    .logo#big {
+        margin: 2em;
+        height: 13em;
+        width: 90%;
     }
 
     .login-container {
         width: 90%;
-        margin-top: 5em;
+        margin-top: 1em;
+    }
+
+    .logo-text {
+        font: normal normal normal 95px/100px Segoe UI;
     }
 
     form {
         margin: auto;
     }
     
-    img {
+    /*img {
         height: 7em;
         margin: 2em;
+    }*/
+
+    input, textarea {
+        font-size: 45px;
+    }
+
+    button {
+        font: normal normal normal 66px/58px Candara;
     }
 }
 
@@ -146,15 +158,17 @@ nav {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
+    position: fixed;
 }
 
 main {
     display: flex;
     flex-direction: column;
+    margin-top: 15vh;
 }
 
 nav > img {
-    width: 12vw;
+    /*width: 13em;*/
     margin: 0.2em 0em;
 }
 
@@ -232,10 +246,11 @@ header {
     border-radius: 15px;
     letter-spacing: 0.1em;
     text-align: center;
-    width: 20%;
+    min-width: 20%;
     display: flex;
     align-items: center;
     justify-content: center;
+    padding-left: 0.3em;
 }
 
 .add-activity > a {

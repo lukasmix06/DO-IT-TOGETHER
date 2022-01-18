@@ -8,9 +8,19 @@
 
 <body>
 <div class="container">
-    <div class="logo">
-        <img src="public/img/logo-small.svg">
+    <div class="logo" id="big">
+        <div class="text-component">
+            <div class="logo-text" id="text1">
+                DO<br>IT<br>TOGETHER
+                <div class="logo-text" id="text2">
+                    DO<br>IT<br>TOGETHER
+                </div>
+            </div>
+        </div>
     </div>
+    <!--<div class="logo">
+        <img src="public/img/logo-small.svg">
+    </div>-->
     <div class="login-container">
         <form class="register" action="register" method="POST">
             <div class="messages">
