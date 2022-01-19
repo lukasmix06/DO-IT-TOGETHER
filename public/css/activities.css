@@ -1,13 +1,14 @@
 section {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-gap: 2em;
-    padding: 2em;
+    grid-gap: 1em;
+    padding: 1em;
     overflow: auto;
 }
 
 .activities>div>img {
-    height: 50%;
+    height: 35vh;
+    overflow: hidden;
     width: 100%;
     object-fit: cover;
     border-radius: 1em 1em 0 0;
@@ -15,16 +16,16 @@ section {
 
 .activities>div>div {
     background: transparent linear-gradient(100deg, #B400FF 0%, #5A0080 100%) 0% 0% no-repeat padding-box;
-    height: 50%;
     text-align: left;
     font: normal normal bold 20px/30px Arial;
     letter-spacing: 0px;
     color: #FFFEFE;
-    padding: 1em;
-
+    padding: 0.5em;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    height: 35vh;
+    overflow: hidden;
 }
 
 .activities>div {
@@ -33,6 +34,17 @@ section {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    height: 70vh;
+    overflow: hidden;
+}
+
+.activities p {
+    overflow: auto;
+    margin: 0;
+}
+
+p.description {
+    height: 7em;
 }
 
 .social-section {
@@ -45,6 +57,7 @@ section {
     flex-direction: row;
     flex-wrap: wrap;
     align-content: center;
+    font-size: large;
 }
 
 section.activity-form {
@@ -72,7 +85,21 @@ h1 {
     font-size: 30px;
 }
 
+h2 {
+    font-size:initial;
+    margin: 0;
+}
+
+.fa-male:before {
+    margin-right: 1em;
+}
+
+
 @media only screen and (max-device-width: 420px) {
+    h2 {
+        font-size: 30px;
+    }
+
     section {
         display: grid;
         grid-template-columns: repeat(2, 1fr);

@@ -40,8 +40,8 @@ function createActivity(activity) {
     title.innerHTML = activity.title;
     const description = clone.querySelector("p");
     description.innerHTML = activity.description;
-    const people = clone.querySelector(".fa-heart");
-    people.innerText = activity.max_nr_of_participants;
+    const people = clone.querySelector(".fa-male");
+    people.innerText = activity.participants;
 
     activityContainer.appendChild(clone); //wrzucenie zapisanych danych na stronę
 

@@ -57,12 +57,12 @@
                     <img src="public/uploads/<?= $activity->getImage() ?>">
                     <div>
                         <h2><?= $activity->getTitle() ?></h2>
-                        <p><?= $activity->getDescription() ?></p>
+                        <p><?= $activity->getDate()." ".$activity->getTime() ?></p>
+                        <p class="description"><?= $activity->getDescription() ?></p>
                         <div class="social-section">
                             <i id="join" class="fas fa-male">
-                                <?= $activity->getParticipants() ?>
+                                <?= $activity->getParticipants()." / ".$activity->getParticipantsMax() ?>
                             </i>
-                            <?= " / ",$activity->getParticipantsMax() ?>
                         </div>
                     </div>
                 </div>
@@ -81,8 +81,7 @@
             <h2>title</h2>
             <p>description</p>
             <div class="social-section">
-                <i class="fas fa-heart"> 500</i>
-                <i class="fas fa-minus-square"> 232</i>
+                <i class="fas fa-male">0</i>
             </div>
         </div>
     </div>
