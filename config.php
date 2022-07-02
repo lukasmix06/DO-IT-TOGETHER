@@ -1,8 +1,8 @@
 <?php
 
-const USERNAME = 'qmkjzaeghsfbvj';
-const PASSWORD = '9efe77558d3b4e0220382aa01835170504e98fd9e5a0a4aea007de81c8702179';
-const HOST = 'ec2-99-80-108-106.eu-west-1.compute.amazonaws.com';
-const DATABASE = 'd78oq8q1cq2ulq';
+const USERNAME = 'jitedxlbsgrdvj';
+const PASSWORD = '2e6bc4aa071a9969bdb9ea3d9466cf3b2407e7a42698cba9bbc195ead0bbb6fe';
+const HOST = 'ec2-54-194-147-61.eu-west-1.compute.amazonaws.com';
+const DATABASE = 'd544p39aogl3fj';
 
 
