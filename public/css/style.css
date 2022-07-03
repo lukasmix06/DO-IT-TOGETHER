@@ -103,7 +103,11 @@ input, textarea {
     width: 85%;
     font-size: 17px;
 }
-
+.messages {
+    background: orangered;
+    font-size: x-large;
+    border-radius: 10px;
+}
 
 
 @media only screen and (max-device-width: 420px) {

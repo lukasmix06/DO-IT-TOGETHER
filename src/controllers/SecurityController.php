@@ -61,6 +61,8 @@ class SecurityController extends AppController
             return $this->render('register', ['messages' => ['Hasła muszą być takie same!']]);
         }
 
+        //if ($email) regex trzeba by było użyć
+
         $user = new User($email, sha1($password), $name, $surname, $phone);
 
         $this->user_repository->addUser($user);
