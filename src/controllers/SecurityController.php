@@ -7,6 +7,7 @@ require_once __DIR__.'/../repository/UserRepository.php';
 class SecurityController extends AppController
 {
     private $user_repository;
+    //private $user;
 
     public function __construct()
     {
@@ -37,6 +38,11 @@ class SecurityController extends AppController
         if($user->getPassword() != $password) {
             return $this->render("login", ['messages' => ["Złe hasło!"]]);
         }
+
+        AppController::setUser($user);
+        #TODO trzeba ustawić jeszcze funkcję logout w odpowiednim miejscu
+
+        // var_dump(AppController::getUser());
 
         // return $this->render('activities');
         $url = "http://$_SERVER[HTTP_HOST]";

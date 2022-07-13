@@ -2,9 +2,10 @@
 
 <head>
     <link rel="stylesheet" type="text/css" href="public/css/style.css">
-    <link rel="stylesheet" type="text/css" href="public/css/activities.css">
+    <link rel="stylesheet" type="text/css" href="public/css/activities.css"> <!-- TODO menu bedzie trzeba przeniesc z activities do glownego pliku-->
+    <link rel="stylesheet" type="text/css" href="public/css/profile.css">
     <script src="https://kit.fontawesome.com/11ac319bc2.js" crossorigin="anonymous"></script>
-    <title>ACTIVITIES</title>
+    <title>USER_PROFILE</title>
 </head>
 
 <body>
@@ -37,26 +38,21 @@
                 </ul>
             </div>
         </nav>
-        <main>
-            <section class="activity-form">
-                <h1>WRZUĆ NOWĄ AKTYWNOŚĆ</h1>
-                <?php if(isset($messages)) {
-                    foreach ($messages as $message) {
-                        echo $message;
-                    }
-                }
-                ?>
-                <form action="addActivity" method="POST" ENCTYPE="multipart/form-data"> <!--enctype, bo wysyłamy także plik-->
-                    <input name="title" type="text" placeholder="Nowa aktywność">
-                    <textarea name="description" rows="3" placeholder="Tutaj umieść opis swojego wydarzenia"></textarea>
-                    <input name="place" type="text" placeholder="Miejsce aktywnosci">
-                    <input name="sport" type="text" placeholder="Dyscyplina sportowa">
-                    <input name="date" type="text" placeholder="Data">
-                    <input name="time" type="text" placeholder="Czas">
-                    <input type="file" name="file">
-                    <button type="submit">Wyślij</button>
-                </form>
+
+        <main class="profile">
+            <h1 class="profile">Twoje dane</h1>
+            <section class="user_data">
+                <h2>
+                    <?php $profile->getName() $profile->getName() ?>
+                </h2>
+                <p>
+                    <?php $profile->getEmail() ?>
+                </p>
+                <p>
+                    <?php $profile->getPhone() ?>
+                </p>
             </section>
         </main>
     </div>
 </body>
+

@@ -3,6 +3,7 @@
 require_once 'src/controllers/DefaultController.php';
 require_once 'src/controllers/SecurityController.php';
 require_once 'src/controllers/ActivityController.php';
+require_once 'src/controllers/UserController.php';
 
 class Routing {
     public static $routes; //tablica przechowująca url oraz odpowiednio do niego otwartego kontrolera
@@ -14,6 +15,9 @@ class Routing {
     public static function post($url, $controller) {
         self::$routes[$url] = $controller;
     }
+
+
+
 
 
     public static function run ($url) {

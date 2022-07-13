@@ -6,6 +6,11 @@
     <script src="https://kit.fontawesome.com/11ac319bc2.js" crossorigin="anonymous"></script>
     <script type="text/javascript" src="./public/js/searching.js" defer></script>
     <script type="text/javascript" src="./public/js/participation.js" defer></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik+Moonrocks&display=swap" rel="stylesheet">
+
     <title>ACTIVITIES</title>
 </head>
 
@@ -18,7 +23,7 @@
                 <ul>
                     <li>
                         <i class="fas fa-user-circle"></i>
-                        <a href="#" class="button">Profil</a>
+                        <a href="profile" class="button">Profil</a>
                     </li>
                     <li>
                         <i class="fas fa-bahai"></i>

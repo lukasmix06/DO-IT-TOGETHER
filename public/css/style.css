@@ -8,6 +8,10 @@ body {
     font-size: 12px;
 }
 
+a {
+    font-family: 'Rubik Moonrocks', cursive;
+}
+
 .container {
     width: 100vw;
     height: 100%;
@@ -92,7 +96,7 @@ button {
     margin: 0.5em;
     padding: 0.5em;
     line-height: 2.5em;
-    font: normal normal normal 29px/39px Candara;
+    font: normal normal normal 29px/39px 'Rubik Moonrocks';
     letter-spacing: 2px;
 }
 
@@ -103,6 +107,7 @@ input, textarea {
     width: 85%;
     font-size: 17px;
 }
+
 .messages {
     background: orangered;
     font-size: x-large;
@@ -110,7 +115,7 @@ input, textarea {
 }
 
 
-@media only screen and (max-device-width: 420px) {
+@media only screen and (max-width: 420px) {
     * {
         font-size: 36px; /*jednostki em będą według tego skalowane*/
     }
@@ -195,7 +200,7 @@ nav .button {
     margin-left: 0.3em;
     text-align: center;
     letter-spacing: 1px;
-    font: normal normal normal 19px/22px Candara;
+    font: normal normal normal 19px/22px 'Rubik Moonrocks';
     color: #5A0080;
     padding: 0.3em;
 }

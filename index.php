@@ -14,8 +14,22 @@ Routing::post('register', 'SecurityController');
 Routing::post('search', 'ActivityController');
 Routing::get('participate','ActivityController');
 Routing::get('unparticipate','ActivityController');
+Routing::get('profile', 'UserController');
 
 Routing::run($path);
 
-
+#NA TYM ETAPIE NIE MA ZNACZENIA CZY POST CZY GET, BO OBIE FUNKCJE ROBIĄ DOKŁADNIE TO SAMO, CO CHYBA NIE JEST DOBRE
 ?>
+
+
+
+
+
+
+
+
+
+
+
+
+

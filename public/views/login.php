@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <head>
     <link rel="stylesheet" type="text/css" href="public/css/style.css">
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1.0"> for resposive design-->
     <title>LOGIN PAGE</title>
 </head>
 <body>

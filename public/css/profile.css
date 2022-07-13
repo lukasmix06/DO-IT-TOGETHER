@@ -1,0 +1,16 @@
+h1.profile {
+    font-size: 3em;
+    padding-left: 2em;
+}
+
+h2 {
+    font-size: 1.5em;
+}
+
+.user_data {
+    padding-left: 6em;
+}
+
+section.user_data {
+    display: inline;
+}
