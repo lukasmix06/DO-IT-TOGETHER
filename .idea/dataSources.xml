@@ -1,23 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="PostgreSQL - d78oq8q1cq2ulq@ec2-99-80-108-106.eu-west-1.compute.amazonaws.com" uuid="7540ecb9-c1f7-4246-a7b8-66630a9596f4">
+    <data-source source="LOCAL" name="DITT_heroku_database" uuid="b0ffe9e7-701d-417d-85a7-4eb5d81bb557">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
-      <jdbc-url>jdbc:postgresql://ec2-99-80-108-106.eu-west-1.compute.amazonaws.com:5432/d78oq8q1cq2ulq</jdbc-url>
+      <jdbc-url>jdbc:postgresql://ec2-176-34-211-0.eu-west-1.compute.amazonaws.com:5432/d5dasvd3kjselu</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
-      <driver-properties>
-        <property name="ssl" value="true" />
-        <property name="sslmode" value="verify-ca" />
-        <property name="sslfactory" value="org.postgresql.ssl.NonValidatingFactory" />
-      </driver-properties>
     </data-source>
-    <data-source source="LOCAL" name="DITT_my_database" uuid="b0ffe9e7-701d-417d-85a7-4eb5d81bb557">
+    <data-source source="LOCAL" name="DITT_local_database" uuid="920639a5-23d9-4c58-ac4d-ea60bbb08a60">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
-      <jdbc-url>jdbc:postgresql://ec2-54-194-147-61.eu-west-1.compute.amazonaws.com:5432/d544p39aogl3fj</jdbc-url>
+      <jdbc-url>jdbc:postgresql://localhost:5432/DITT_new_database</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
   </component>

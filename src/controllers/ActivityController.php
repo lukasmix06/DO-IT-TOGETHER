@@ -22,6 +22,8 @@ class ActivityController extends AppController {
 
     public function activities()
     {
+        session_start();
+
         $activities = $this->activityRepository->getActivities();
         $this->render('activities', ['activities' => $activities]);
     }

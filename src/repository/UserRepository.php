@@ -19,12 +19,34 @@ class UserRepository extends Repository
         }
 
         return new User(
+            $user['id'],
             $user['email'],
             $user['password'],
             $user['name'],
             $user['surname']
         );
+    }
 
+    public function findUserById(int $id): ?User {
+        $statement = $this->database->connect()->prepare("
+            SELECT * FROM users u LEFT JOIN users_details ud 
+            ON u.id_user_details = ud.id where u.id = :id
+        ");
+        $statement->bindParam(':id', $id, PDO::PARAM_STR);
+        $statement->execute();
+        $user = $statement->fetch(PDO::FETCH_ASSOC); //dane zapisujemy jako tabela asocjacyjna
+
+        if($user == false) {
+            return null; //zamiast zwracać null lepiej zwracać exception, który będzie odbierany w metodzie login
+        }
+
+        return new User(
+            $user['id'],
+            $user['email'],
+            $user['password'],
+            $user['name'],
+            $user['surname']
+        );
     }
 
     public function addUser(User $user)
@@ -66,6 +88,5 @@ class UserRepository extends Repository
         return $data['id'];
     }
 
-
-    //TODO trzeba chyba jeszcze zrobić id_user_datails w tabelce users
 }
+

@@ -43,13 +43,13 @@
             <h1 class="profile">Twoje dane</h1>
             <section class="user_data">
                 <h2>
-                    <?php $profile->getName() $profile->getName() ?>
+                    <?= $profile->getName().' '.$profile->getSurname() ?>
                 </h2>
                 <p>
-                    <?php $profile->getEmail() ?>
+                    <?= $profile->getEmail() ?>
                 </p>
                 <p>
-                    <?php $profile->getPhone() ?>
+                    <?= $profile->getPhone() ?>
                 </p>
             </section>
         </main>

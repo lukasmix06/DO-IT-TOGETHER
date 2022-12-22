@@ -2,21 +2,6 @@
 
 class AppController {
     private $request;
-    //protected static $user = 1;
-
-    public static $current_user;
-
-    public static function setUser($user) {
-        self::$current_user = $user;
-    }
-
-    public static function getUser() {
-        return self::$current_user;
-    }
-
-    public static function unsetUser() {
-        self::$current_user = null;
-    }
 
     public function __construct()
     {
