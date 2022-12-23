@@ -23,9 +23,8 @@ class UserController extends AppController
         }
 
         $userID = $_SESSION['user'];
-        //var_dump($userID);
         $profile = $this->user_repository->findUserById($userID);
-        //var_dump($profile);
+
 
         $this->render('profile', ['profile' => $profile]);
     }

@@ -33,23 +33,35 @@
                     </li>
                     <li>
                         <i class="fas fa-sign-out-alt"></i>
-                        <a href="login" class="button">Wyloguj</a>
+                        <a href="logout" class="button">Wyloguj</a>
                     </li>
                 </ul>
             </div>
         </nav>
 
         <main class="profile">
-            <h1 class="profile">Twoje dane</h1>
+            <h1 class="profile">Twoje dane:</h1>
             <section class="user_data">
                 <h2>
-                    <?= $profile->getName().' '.$profile->getSurname() ?>
+                    Witaj <?= $profile->getName().' '.$profile->getSurname() ?> !
                 </h2>
                 <p>
-                    <?= $profile->getEmail() ?>
+                    Email: <?= $profile->getEmail() ?>
                 </p>
                 <p>
-                    <?= $profile->getPhone() ?>
+                    Telefon: <?= $profile->getPhone() ?>
+                </p>
+                <p>
+                    Płeć: <?= $profile->getAge() ?>
+                </p>
+                <p>
+                    Współrzędne: <?= $profile->getPlaceCoordinates() ?>
+                </p>
+                <p>
+                    Twój opis: <?= $profile->getSelfDescription() ?>
+                </p>
+                <p>
+                    Twoje punkty: <?= $profile->getPoints() ?>
                 </p>
             </section>
         </main>

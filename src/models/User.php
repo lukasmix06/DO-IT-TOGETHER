@@ -9,6 +9,11 @@ class User
     private $name;
     private $surname;
     private $phone;
+    private $gender;
+    private $age;
+    private $place_coordinates;
+    private $self_description;
+    private $points;
 
 
     public function __construct(int $id, string $email, string $password, string $name, string $surname, string $phone = NULL)
@@ -81,4 +86,54 @@ class User
         $this->phone = $phone;
     }
 
+    public function getGender()
+    {
+        return $this->gender;
+    }
+
+    public function setGender($gender): void
+    {
+        $this->gender = $gender;
+    }
+
+    public function getAge()
+    {
+        return $this->age;
+    }
+
+    public function setAge($age): void
+    {
+        $this->age = $age;
+    }
+
+    public function getPlaceCoordinates()
+    {
+        return $this->place_coordinates;
+    }
+
+    public function setPlaceCoordinates($place_coordinates): void
+    {
+        $this->place_coordinates = $place_coordinates;
+    }
+
+    public function getSelfDescription()
+    {
+        return $this->self_description;
+    }
+
+
+    public function setSelfDescription($self_description): void
+    {
+        $this->self_description = $self_description;
+    }
+
+    public function getPoints()
+    {
+        return $this->points;
+    }
+
+    public function setPoints($points): void
+    {
+        $this->points = $points;
+    }
 }

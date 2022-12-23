@@ -74,4 +74,14 @@ class SecurityController extends AppController
 
         return $this->render('login', ['messages' => ['Gratulacje, zostałeś nowym użytkownikiem!']]);
     }
+
+    public function logout() {
+        session_start();
+
+        unset($_SESSION['user']);
+
+        session_destroy();
+
+        return $this->render('login', ['messages' => ['Zostałeś poprawnie wylogowany. Do zobaczenia!']]);
+    }
 }

@@ -39,7 +39,7 @@
                     </li>
                     <li>
                         <i class="fas fa-sign-out-alt"></i>
-                        <a href="login" class="button">Wyloguj</a>
+                        <a href="logout" class="button">Wyloguj</a>
                     </li>
                 </ul>
             </div>
