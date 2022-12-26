@@ -1,49 +1,23 @@
 <!DOCTYPE html>
 
 <head>
-    <link rel="stylesheet" type="text/css" href="public/css/style.css">
-    <link rel="stylesheet" type="text/css" href="public/css/activities.css">
-    <script src="https://kit.fontawesome.com/11ac319bc2.js" crossorigin="anonymous"></script>
     <script type="text/javascript" src="./public/js/searching.js" defer></script>
     <script type="text/javascript" src="./public/js/participation.js" defer></script>
+    <script type="text/javascript" src="./public/js/map.js" defer></script>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Rubik+Moonrocks&display=swap" rel="stylesheet">
+
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css' rel='stylesheet' />
 
     <title>ACTIVITIES</title>
 </head>
 
+<?php
+include_once "navbar.php";
+?>
+
 <body>
     <div class="base-container">
-        <nav>
-            <img src="public/img/logo-small.svg">
-            <div class="dropdown">
-                <i id="dropbtn" class="fas fa-bars"></i>
-                <ul>
-                    <li>
-                        <i class="fas fa-user-circle"></i>
-                        <a href="profile" class="button">Profil</a>
-                    </li>
-                    <li>
-                        <i class="fas fa-bahai"></i>
-                        <a href="activities" class="button">Aktywności</a>
-                    </li>
-                    <li>
-                        <i class="fas fa-user-friends"></i>
-                        <a href="#" class="button">Ludzie</a>
-                    </li>
-                    <li>
-                        <i class="fas fa-comments"></i>
-                        <a href="#" class="button">Wiadomości</a>
-                    </li>
-                    <li>
-                        <i class="fas fa-sign-out-alt"></i>
-                        <a href="logout" class="button">Wyloguj</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
         <main>
             <header>
                 <div class="search-bar">
@@ -74,6 +48,14 @@
                 <?php endforeach; ?>
             </section>
             <section class="map">
+                <div id='map' style='width: 400px; height: 300px;'></div>
+                <script>
+                    mapboxgl.accessToken = 'YOUR_MAPBOX_ACCESS_TOKEN';
+                    var map = new mapboxgl.Map({
+                        container: 'map',
+                        style: 'mapbox://styles/mapbox/streets-v11'
+                    });
+                </script>
             </section>
         </main>
     </div>
