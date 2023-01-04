@@ -1,9 +1,12 @@
 h1.profile {
     font-size: 3em;
-    padding-left: 2em;
 }
 
 h2 {
+    font-size: 2em;
+}
+
+p {
     font-size: 1.5em;
 }
 
@@ -13,4 +16,11 @@ h2 {
 
 section.user_data {
     display: inline;
+}
+
+div.profile {
+    background-color: mediumpurple;
+    margin: 10vw 5vw;
+    padding: 2vw;
+    border-radius: 10px;
 }

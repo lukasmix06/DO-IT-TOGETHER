@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 <head>
+    <link rel="stylesheet" type="text/css" href="public/css/profile.css">
     <title>USER_PROFILE</title>
 </head>
 
@@ -10,32 +11,32 @@ include_once "navbar.php";
 
 <body>
     <div class="base-container">
-        <main class="profile">
-            <h1 class="profile">Twoje dane:</h1>
+        <div class="profile">
+            <h1 class="profile">Witaj <?= $profile->getName().' '.$profile->getSurname() ?> !</h1>
             <section class="user_data">
                 <h2>
-                    Witaj <?= $profile->getName().' '.$profile->getSurname() ?> !
+                    Twoje dane:
                 </h2>
                 <p>
-                    Email: <?= $profile->getEmail() ?>
+                    Email: <?= "\t\t".$profile->getEmail() ?>
                 </p>
                 <p>
-                    Telefon: <?= $profile->getPhone() ?>
+                    Telefon: <?= "\t\t".$profile->getPhone() ?>
                 </p>
                 <p>
-                    Płeć: <?= $profile->getAge() ?>
+                    Płeć: <?= "\t\t".$profile->getGender() ?>
                 </p>
                 <p>
-                    Współrzędne: <?= $profile->getPlaceCoordinates() ?>
+                    Wiek: <?= "\t\t".$profile->getAge() ?>
                 </p>
                 <p>
-                    Twój opis: <?= $profile->getSelfDescription() ?>
+                    Twoje punkty: <?= "\t\t".$profile->getPoints() ?>
                 </p>
                 <p>
-                    Twoje punkty: <?= $profile->getPoints() ?>
+                    Twój opis: <?= "\t\t".$profile->getSelfDescription() ?>
                 </p>
             </section>
-        </main>
+        </div>
     </div>
 </body>
 

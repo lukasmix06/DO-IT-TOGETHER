@@ -16,6 +16,11 @@ Routing::get('participate','ActivityController');
 Routing::get('unparticipate','ActivityController');
 Routing::post('profile', 'UserController');
 Routing::post('logout', 'SecurityController');
+Routing::post('getActivitiesToMap', 'ActivityController');
+Routing::post('addMarkerToMap', 'ActivityController');
+
+
+//TODO - nie dodano funkcji validate() do routingu!!!!
 
 Routing::run($path);
 

@@ -20,7 +20,8 @@ class ActivityRepository extends Repository
         return new Activity (
             $activity['title'],
             $activity['description'],
-            $activity['place_coordinates'],
+            $activity['longitude'],
+            $activity['latitude'],
             $activity['sport'],
             $activity['date'],
             $activity['time'],
@@ -31,26 +32,29 @@ class ActivityRepository extends Repository
 
     public function addActivity(Activity $activity): void
     {
+        //var_dump($activity);
+
         $date = new DateTime;
         $statement = $this->database->connect()->prepare('
-            INSERT INTO activities (title, place_coordinates, date, time, sport, description, id_founder, created_at, image) 
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+            INSERT INTO activities (title, date, time, place, longitude, latitude, sport, description, id_founder, created_at, image) 
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
         ');
 
         $founder_id = 1; //pobrać wartośc na podstawie sesji zalogowanego użytkownika
 
         $statement->execute([
             $activity->getTitle(),
-            $activity->getPlace(),
             $date->format('Y-m-d'), //do modyfikacji, docelowo $activity->getDate()
             $date->format('H:i:s'), //do modyfikacji, docelowo $activity->getTime(),
+            $activity->getPlace(),
+            $activity->getLongitude(),
+            $activity->getLatitude(),
             $activity->getSport(),
             $activity->getDescription(),
             $founder_id,
             $date->format('Y-m-d'),
             $activity->getImage()
         ]);
-
     }
 
     public function getActivities(): array
@@ -67,7 +71,9 @@ class ActivityRepository extends Repository
             $result[] = new Activity(
                 $activity['title'],
                 $activity['description'],
-                $activity['place_coordinates'],
+                $activity['place'],
+                $activity['longitude'],
+                $activity['latitude'],
                 $activity['sport'],
                 $activity['date'],
                 $activity['time'],

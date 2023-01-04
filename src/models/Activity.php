@@ -5,7 +5,8 @@ class Activity
 {
     private $title;
     private $description;
-    private $place;
+    private $longitude;
+    private $latitude;
     private $sport;
     private $date;
     private $time;
@@ -13,12 +14,15 @@ class Activity
     private $participants;
     private $participants_max;
     private $id;
+    private $place;
 
-    public function __construct($title, $description, $place, $sport, $date, $time, $image, $participants=0, $participants_max=5, $id=null)
+    public function __construct($title, $description, $place, $longitude, $latitude, $sport, $date, $time, $image, $participants=0, $participants_max=5, $id=null)
     {
         $this->title = $title;
         $this->description = $description;
         $this->place = $place;
+        $this->longitude = $longitude;
+        $this->latitude = $latitude;
         $this->sport = $sport;
         $this->date = $date;
         $this->time = $time;
@@ -26,6 +30,17 @@ class Activity
         $this->participants = $participants;
         $this->participants_max = $participants_max;
         $this->id = $id;
+    }
+
+
+    public function getPlace()
+    {
+        return $this->place;
+    }
+
+    public function setPlace($place): void
+    {
+        $this->place = $place;
     }
 
     public function getTitle(): string
@@ -51,14 +66,24 @@ class Activity
         $this->description = $description;
     }
 
-    public function getPlace(): string
+    public function getLongitude()
     {
-        return $this->place;
+        return $this->longitude;
     }
 
-    public function setPlace(string $place)
+    public function setLongitude(string $longitude)
     {
-        $this->place = $place;
+        $this->longitude = $longitude;
+    }
+
+    public function getLatitude()
+    {
+        return $this->latitude;
+    }
+
+    public function setLatitude(string $latitude)
+    {
+        $this->latitude = $latitude;
     }
 
     public function getSport(): string

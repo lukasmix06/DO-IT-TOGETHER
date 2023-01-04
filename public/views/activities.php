@@ -9,6 +9,11 @@
     <script src='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css' rel='stylesheet' />
 
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.min.js"></script>
+    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.css" type="text/css">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> <!--TO MOŻE BYĆ PROBLEM BO NIE WIEM O CO CHODZI-->
+
     <title>ACTIVITIES</title>
 </head>
 
@@ -30,33 +35,28 @@ include_once "navbar.php";
                     </a>
                 </div>
             </header>
-            <section class="activities">
-                <?php foreach($activities as $activity): ?>
-                <div id="<?= $activity->getId(); ?>">
-                    <img src="public/uploads/<?= $activity->getImage() ?>">
-                    <div>
-                        <h2><?= $activity->getTitle() ?></h2>
-                        <p><?= $activity->getDate()." ".$activity->getTime() ?></p>
-                        <p class="description"><?= $activity->getDescription() ?></p>
-                        <div class="social-section">
-                            <i id="join" class="fas fa-male">
-                                <?= $activity->getParticipants()." / ".$activity->getParticipantsMax() ?>
-                            </i>
+            <div class="basic-content">
+                <section class="activities">
+                    <?php foreach($activities as $activity): ?>
+                        <div id="<?= $activity->getId(); ?>">
+                            <img src="public/uploads/<?= $activity->getImage() ?>">
+                            <div>
+                                <h2><?= $activity->getTitle() ?></h2>
+                                <p><?= $activity->getDate()." ".$activity->getTime() ?></p>
+                                <p class="description"><?= $activity->getDescription() ?></p>
+                                <div class="social-section">
+                                    <i id="join" class="fas fa-male">
+                                        <?= $activity->getParticipants()." / ".$activity->getParticipantsMax() ?>
+                                    </i>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <?php endforeach; ?>
-            </section>
-            <section class="map">
-                <div id='map' style='width: 400px; height: 300px;'></div>
-                <script>
-                    mapboxgl.accessToken = 'YOUR_MAPBOX_ACCESS_TOKEN';
-                    var map = new mapboxgl.Map({
-                        container: 'map',
-                        style: 'mapbox://styles/mapbox/streets-v11'
-                    });
-                </script>
-            </section>
+                    <?php endforeach; ?>
+                </section>
+                <section class="map">
+                    <div id='map'></div>
+                </section>
+            </div>
         </main>
     </div>
 </body>

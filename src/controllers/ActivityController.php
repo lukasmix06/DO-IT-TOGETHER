@@ -28,6 +28,50 @@ class ActivityController extends AppController {
         $this->render('activities', ['activities' => $activities]);
     }
 
+    public function getActivitiesToMap() {
+        $activities = $this->activityRepository->getActivities();
+
+        header('Content-Type: application/json; charset=utf-8');
+
+        $returnData = [];
+        foreach ($activities as $activity) {
+            $returnData[] = [
+                'type' => 'Feature'.$activity->getID(),
+                'properties' => [
+                    'description' => '<strong>'.$activity->getTitle().'</strong><p>'.$activity->getDescription().'</p>',
+                    'icon' => 'marker-editor'
+                ],
+                'geometry' => [
+                    'type' => 'Point',
+                    'coordinates' => [$activity->getLongitude(), $activity->getLatitude()]
+                ]
+            ];
+        }
+
+        echo json_encode($returnData);
+    }
+
+    public function addMarkerToMap() {
+        header('Content-Type: application/json; charset=utf-8');
+
+        if(isset($_POST['lat'])) {
+            $returnData = [];
+
+            $returnData[] = [
+                'type' => 'Feature',
+                'properties' => [
+                    'description' => '', //może można całkowicie wyrzucić - sprawdzić
+                    'icon' => 'marker-editor'
+                ],
+                'geometry' => [
+                    'type' => 'Point',
+                    'coordinates' => [$_POST['lng'], $_POST['lat']]
+                ]
+            ];
+
+            echo json_encode($returnData);
+        }
+    }
 
     public function addActivity() {
 
@@ -37,10 +81,9 @@ class ActivityController extends AppController {
                 $_FILES['file']['tmp_name'],
                 dirname(__DIR__).self::UPLOAD_DIRECTORY.$_FILES['file']['name']
             );
-
-            $activity = new Activity($_POST['title'], $_POST['description'], $_POST['place'], $_POST['sport'], $_POST['date'], $_POST['time'], $_FILES['file']['name']);
+            list($place, $longitude, $latitude) = explode(";", $_POST['place']);
+            $activity = new Activity($_POST['title'], $_POST['description'], $place, $longitude, $latitude, $_POST['sport'], $_POST['date'], $_POST['time'], $_FILES['file']['name']);
             $this->activityRepository->addActivity($activity);
-            //trzeba jeszcze zaimplementować wyświetlanie projektów z bazy
 
             return $this->render("activities", ['messages' => $this->messages, 'activities' => $this->activityRepository->getActivities()]);
         }

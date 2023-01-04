@@ -16,7 +16,8 @@ class User
     private $points;
 
 
-    public function __construct(int $id, string $email, string $password, string $name, string $surname, string $phone = NULL)
+    public function __construct(int $id, string $email, string $password, string $name, string $surname, string $phone = NULL,
+                                string $gender = NULL, int $age = NULL, string $place_coordinates = NULL, string $self_description = NULL, int $points = NULL)
     {
         $this->id = $id;
         $this->email = $email;
@@ -24,6 +25,11 @@ class User
         $this->name = $name;
         $this->surname = $surname;
         $this->phone = $phone;
+        $this->gender = $gender;
+        $this->age = $age;
+        $this->place_coordinates = $place_coordinates;
+        $this->self_description = $self_description;
+        $this->points = $points;
     }
 
     public function getID(): int
