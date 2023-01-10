@@ -15,8 +15,10 @@ class Activity
     private $participants_max;
     private $id;
     private $place;
+    private $userId;
 
-    public function __construct($title, $description, $place, $longitude, $latitude, $sport, $date, $time, $image, $participants=0, $participants_max=5, $id=null)
+
+    public function __construct($title, $description, $place, $longitude, $latitude, $sport, $date, $time, $image, $userId=null, $participants=0, $participants_max=5, $id=null)
     {
         $this->title = $title;
         $this->description = $description;
@@ -30,6 +32,7 @@ class Activity
         $this->participants = $participants;
         $this->participants_max = $participants_max;
         $this->id = $id;
+        $this->userId = $userId;
     }
 
 
@@ -155,6 +158,16 @@ class Activity
     public function setId($id): void
     {
         $this->id = $id;
+    }
+
+    public function getUserId()
+    {
+        return $this->userId;
+    }
+
+    public function setUserId($userId): void
+    {
+        $this->userId = $userId;
     }
 
 }

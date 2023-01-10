@@ -2,8 +2,10 @@ h1.profile {
     font-size: 3em;
 }
 
-h2 {
+h2.profile {
     font-size: 2em;
+    margin-bottom: 1em;
+    margin-top: 0;
 }
 
 p {
@@ -24,3 +26,13 @@ div.profile {
     padding: 2vw;
     border-radius: 10px;
 }
+
+div#data {
+    display: inline;
+    /*flex-direction: column;*/
+}
+
+label {
+    font-size: 2em;
+}
+

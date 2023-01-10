@@ -32,7 +32,6 @@ class ActivityRepository extends Repository
 
     public function addActivity(Activity $activity): void
     {
-        //var_dump($activity);
 
         $date = new DateTime;
         $statement = $this->database->connect()->prepare('
@@ -40,18 +39,16 @@ class ActivityRepository extends Repository
             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
         ');
 
-        $founder_id = 1; //pobrać wartośc na podstawie sesji zalogowanego użytkownika
-
         $statement->execute([
             $activity->getTitle(),
-            $date->format('Y-m-d'), //do modyfikacji, docelowo $activity->getDate()
-            $date->format('H:i:s'), //do modyfikacji, docelowo $activity->getTime(),
+            $activity->getDate(),//$date->format('Y-m-d'), //do modyfikacji, docelowo $activity->getDate()
+            $activity->getTime(),//$date->format('H:i:s'), //do modyfikacji, docelowo $activity->getTime(),
             $activity->getPlace(),
             $activity->getLongitude(),
             $activity->getLatitude(),
             $activity->getSport(),
             $activity->getDescription(),
-            $founder_id,
+            $activity->getUserID(),
             $date->format('Y-m-d'),
             $activity->getImage()
         ]);

@@ -74,6 +74,7 @@ class ActivityController extends AppController {
     }
 
     public function addActivity() {
+        session_start();
 
         if($this->isPost() && is_uploaded_file($_FILES['file']['tmp_name']) && $this->validate($_FILES['file'])) {
 
@@ -81,8 +82,11 @@ class ActivityController extends AppController {
                 $_FILES['file']['tmp_name'],
                 dirname(__DIR__).self::UPLOAD_DIRECTORY.$_FILES['file']['name']
             );
+
             list($place, $longitude, $latitude) = explode(";", $_POST['place']);
-            $activity = new Activity($_POST['title'], $_POST['description'], $place, $longitude, $latitude, $_POST['sport'], $_POST['date'], $_POST['time'], $_FILES['file']['name']);
+            $founderId = $_SESSION['user'];
+
+            $activity = new Activity($_POST['title'], $_POST['description'], $place, $longitude, $latitude, $_POST['sport'], $_POST['date'], $_POST['time'], $_FILES['file']['name'], $founderId);
             $this->activityRepository->addActivity($activity);
 
             return $this->render("activities", ['messages' => $this->messages, 'activities' => $this->activityRepository->getActivities()]);

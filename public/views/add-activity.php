@@ -32,12 +32,22 @@ include_once "navbar.php";
                     ?>
                     <form action="addActivity" method="POST" ENCTYPE="multipart/form-data"> <!--enctype, bo wysyłamy także plik-->
                         <input name="title" type="text" placeholder="Nowa aktywność">
-                        <textarea name="description" rows="3" placeholder="Tutaj umieść opis swojego wydarzenia"></textarea>
-                        <div id="geocoder"></div><!--<input name="place" type="text" placeholder="Miejsce aktywnosci">-->
-                        <input name="place" type="text" id="geocoder-btn" value="Pokaż" readonly onclick="getElementById('geocoder-btn').value = addMarker()"></input>
-                        <input name="sport" type="text" placeholder="Dyscyplina sportowa">
-                        <input name="date" type="text" placeholder="Data">
-                        <input name="time" type="text" placeholder="Czas">
+                        <textarea name="description" rows="2" placeholder="Tutaj umieść opis swojego wydarzenia"></textarea>
+                        <div class="place-section">
+                            <div id="geocoder"></div><!--<input name="place" type="text" placeholder="Miejsce aktywnosci">-->
+                            <button type="button" id="geocoder-btn" value="Zatwierdź" readonly onclick="getElementById('place-input').value = addMarker();";>Zatwierdź</button>
+                        </div>
+                        <input name="place" type="text" id="place-input" value="" readonly>
+                        <input name="sport" placeholder="Dyscyplina" list="sporty">
+                        <datalist id="sporty">
+                            <option value="Bieganie">
+                            <option value="Rower">
+                            <option value="Rolki">
+                            <option value="Siatkówka">
+                            <option value="Piłka nożna">
+                        </datalist>
+                        <input name="date" type="date" placeholder="Data">
+                        <input name="time" type="time" placeholder="Czas">
                         <input type="file" name="file">
                         <button type="submit">Wyślij</button>
                     </form>
