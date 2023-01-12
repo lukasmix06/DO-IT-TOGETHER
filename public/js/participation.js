@@ -20,5 +20,5 @@ function reactToActivity() {
         participation.id = "join";
     }
 }
-
+console.log(participationButtons);
 participationButtons.forEach(button => button.addEventListener("click", reactToActivity));

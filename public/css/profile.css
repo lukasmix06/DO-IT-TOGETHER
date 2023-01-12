@@ -33,6 +33,27 @@ div#data {
 }
 
 label {
-    font-size: 2em;
+    font-size: 1.5em;
+    display: inline-block;
+    width: 12vw;
+}
+
+.submit-btn {
+    display: none;
+}
+
+.user-input {
+    background-color: transparent;
+    width: 50%;
+}
+
+form button {
+    font-size: 1.5em;
+}
+
+#points {
+    display: inline;
+    padding: 0.5em;
+    margin: 0.5em;
 }
 

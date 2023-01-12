@@ -18,15 +18,30 @@ class UserController extends AppController
     public function profile()
     {
         session_start();
-        if($this->isPost()) {
+        /*if($this->isPost()) {
             return $this->render('profile');
-        }
+        }*/
 
         $userID = $_SESSION['user'];
         $profile = $this->user_repository->findUserById($userID);
 
 
-        $this->render('profile', ['profile' => $profile]);
+        return $this->render('profile', ['profile' => $profile]);
+    }
+
+    public function changeUserData() {
+        session_start();
+        $userID = $_SESSION['user'];
+
+        foreach($_POST as $key => $value)
+        {
+            $this->user_repository->changeUserProperty($userID, $key, $value);
+        }
+
+        /*$userID = $_SESSION['user'];
+        $profile = $this->user_repository->findUserById($userID);*/
+
+        return $this->profile();
     }
 
 

@@ -32,7 +32,7 @@ class UserRepository extends Repository
             SELECT * FROM users u LEFT JOIN users_details ud 
             ON u.id_user_details = ud.id where u.id = :id
         ");
-        $statement->bindParam(':id', $id, PDO::PARAM_STR);
+        $statement->bindParam(':id', $id, PDO::PARAM_INT);
         $statement->execute();
         $user = $statement->fetch(PDO::FETCH_ASSOC); //dane zapisujemy jako tabela asocjacyjna
 
@@ -50,7 +50,7 @@ class UserRepository extends Repository
             $user['gender'],
             $user['age'],
             $user['place_coordinates'],
-            $user['self-description'],
+            $user['self_description'],
             $user['points']
         );
     }
@@ -94,5 +94,16 @@ class UserRepository extends Repository
         return $data['id'];
     }
 
+    public function changeUserProperty(int $id, string $property, string $value) {
+        if($property == "email")
+            $sql = "UPDATE users SET $property = :value where id = :id";
+        else
+            $sql = "UPDATE users_details ud SET $property = :value FROM users u where u.id = :id AND u.id_user_details = ud.id";
+
+        $statement = $this->database->connect()->prepare($sql);
+        $statement->bindParam(':value', $value, PDO::PARAM_STR);
+        $statement->bindParam(':id', $id, PDO::PARAM_INT);
+        $statement->execute();
+    }
 }
 

@@ -18,6 +18,7 @@ Routing::post('profile', 'UserController');
 Routing::post('logout', 'SecurityController');
 Routing::post('getActivitiesToMap', 'ActivityController');
 Routing::post('addMarkerToMap', 'ActivityController');
+Routing::post('changeUserData', 'UserController');
 
 
 //TODO - nie dodano funkcji validate() do routingu!!!!
