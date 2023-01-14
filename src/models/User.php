@@ -14,10 +14,10 @@ class User
     private $place_coordinates;
     private $self_description;
     private $points;
-
+    private $image;
 
     public function __construct(int $id, string $email, string $password, string $name, string $surname, string $phone = NULL,
-                                string $gender = NULL, int $age = NULL, string $place_coordinates = NULL, string $self_description = NULL, int $points = NULL)
+                                string $gender = NULL, int $age = NULL, string $place_coordinates = NULL, string $self_description = NULL, int $points = NULL, string $image = NULL)
     {
         $this->id = $id;
         $this->email = $email;
@@ -30,6 +30,7 @@ class User
         $this->place_coordinates = $place_coordinates;
         $this->self_description = $self_description;
         $this->points = $points;
+        $this->image = $image;
     }
 
     public function getID(): int
@@ -141,5 +142,15 @@ class User
     public function setPoints($points): void
     {
         $this->points = $points;
+    }
+
+    public function getImage(): string
+    {
+        return $this->image;
+    }
+
+    public function setImage(string $image): void
+    {
+        $this->image = $image;
     }
 }

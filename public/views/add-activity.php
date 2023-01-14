@@ -24,12 +24,13 @@ include_once "navbar.php";
             <div class="basic-content">
                 <section class="activity-form">
                     <h1>WRZUĆ NOWĄ AKTYWNOŚĆ</h1>
-                    <?php if(isset($messages)) {
-                        foreach ($messages as $message) {
-                            echo $message;
-                        }
-                    }
-                    ?>
+                    <?php if(isset($messages) && $messages[0]!='') { ?>
+                        <div class="messages">
+                            <?php foreach ($messages as $message) {
+                                echo $message;
+                            }?>
+                        </div>
+                    <?php } ?>
                     <form action="addActivity" method="POST" ENCTYPE="multipart/form-data"> <!--enctype, bo wysyłamy także plik-->
                         <input name="title" type="text" placeholder="Nowa aktywność">
                         <textarea name="description" rows="2" placeholder="Tutaj umieść opis swojego wydarzenia"></textarea>

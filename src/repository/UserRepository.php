@@ -51,7 +51,8 @@ class UserRepository extends Repository
             $user['age'],
             $user['place_coordinates'],
             $user['self_description'],
-            $user['points']
+            $user['points'],
+            $user['image']
         );
     }
 

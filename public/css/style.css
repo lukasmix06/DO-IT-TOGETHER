@@ -109,9 +109,12 @@ input, textarea {
 }
 
 .messages {
+    padding: 0.2em;
+    width: fit-content;
     background: orangered;
     font-size: x-large;
     border-radius: 10px;
+    margin: 0.2em auto;
 }
 
 
@@ -161,6 +164,7 @@ input, textarea {
     flex-direction: column;
     justify-content: flex-start;
     height: 100vh;
+    padding-top: 15vh;
 }
 
 nav {
@@ -176,7 +180,6 @@ nav {
 main {
     display: flex;
     flex-direction: column;
-    margin-top: 15vh;
 }
 
 nav > img {

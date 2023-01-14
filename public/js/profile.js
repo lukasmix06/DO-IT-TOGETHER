@@ -1,5 +1,6 @@
 const editButtons = document.getElementsByClassName("edit-btn");
 const submitButtons = document.getElementsByClassName("submit-btn");
+const addPhotoButton = document.getElementById("initial-btn");
 
 function changeEditBox() {
     const editBtn = this;
@@ -22,6 +23,13 @@ function showAlert() {
     );
 }
 
+function addPhotoBox() {
+    const form = addPhotoButton.nextElementSibling;
+
+    addPhotoButton.style.display = 'none';
+    form.style.display = 'initial';
+}
+
 Array.from(editButtons).forEach(button => button.addEventListener("click", changeEditBox));
 Array.from(submitButtons).forEach(button => button.addEventListener("click", showAlert));
-
+addPhotoButton.addEventListener("click", addPhotoBox);

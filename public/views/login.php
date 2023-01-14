@@ -18,14 +18,13 @@
         </div>
         <div class="login-container">
             <form class="login" action="login" method="POST">
-                <div class="messages">
-                    <?php if(isset($messages)) {
-                        foreach ($messages as $message) {
+                <?php if(isset($messages) && $messages[0]!='') { ?>
+                    <div class="messages">
+                        <?php foreach ($messages as $message) {
                             echo $message;
-                        }
-                    }
-                    ?>
-                </div>
+                        }?>
+                    </div>
+                <?php } ?>
                 <input name="email" type="text" placeholder="email@email.com">
                 <input name="password" type="password" placeholder="password">
                 <button type="submit">Zaloguj się</button>

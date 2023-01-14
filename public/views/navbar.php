@@ -13,35 +13,33 @@
 </head>
 
 <body>
-    <div>
-        <nav>
-            <img src="public/img/logo-small.svg">
-            <div class="dropdown">
-                <i id="dropbtn" class="fas fa-bars"></i>
-                <ul>
-                    <li>
-                        <i class="fas fa-user-circle"></i>
-                        <a href="profile" class="button">Profil</a>
-                    </li>
-                    <li>
-                        <i class="fas fa-bahai"></i>
-                        <a href="activities" class="button">Aktywności</a>
-                    </li>
-                    <li>
-                        <i class="fas fa-user-friends"></i>
-                        <a href="#" class="button">Ludzie</a>
-                    </li>
-                    <li>
-                        <i class="fas fa-comments"></i>
-                        <a href="#" class="button">Wiadomości</a>
-                    </li>
-                    <li>
-                        <i class="fas fa-sign-out-alt"></i>
-                        <a href="logout" class="button">Wyloguj</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-    </div>
+    <nav>
+        <img src="public/img/logo-small.svg">
+        <div class="dropdown">
+            <i id="dropbtn" class="fas fa-bars"></i>
+            <ul>
+                <li>
+                    <i class="fas fa-user-circle"></i>
+                    <a href="profile" class="button">Profil</a>
+                </li>
+                <li>
+                    <i class="fas fa-bahai"></i>
+                    <a href="activities" class="button">Aktywności</a>
+                </li>
+                <li>
+                    <i class="fas fa-user-friends"></i>
+                    <a href="#" class="button">Ludzie</a>
+                </li>
+                <li>
+                    <i class="fas fa-comments"></i>
+                    <a href="#" class="button">Wiadomości</a>
+                </li>
+                <li>
+                    <i class="fas fa-sign-out-alt"></i>
+                    <a href="logout" class="button">Wyloguj</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
 </body>
 

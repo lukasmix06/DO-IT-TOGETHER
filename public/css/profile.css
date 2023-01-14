@@ -1,11 +1,10 @@
 h1.profile {
     font-size: 3em;
+    margin-bottom: 1em;
 }
 
 h2.profile {
     font-size: 2em;
-    margin-bottom: 1em;
-    margin-top: 0;
 }
 
 p {
@@ -13,16 +12,27 @@ p {
 }
 
 .user_data {
-    padding-left: 6em;
+    /*padding-left: 6em;*/
 }
 
 section.user_data {
-    display: inline;
+    display: inline-block;
+    width: 60%;
+}
+
+section.user_photo {
+    width: 40%;
+}
+
+.photo {
+    width: 100%;
 }
 
 div.profile {
+    display: flex;
+    justify-content: space-between;
     background-color: mediumpurple;
-    margin: 10vw 5vw;
+    margin: 2vh 5vw;
     padding: 2vw;
     border-radius: 10px;
 }
@@ -35,7 +45,7 @@ div#data {
 label {
     font-size: 1.5em;
     display: inline-block;
-    width: 12vw;
+    width: 7vw;
 }
 
 .submit-btn {
@@ -57,3 +67,6 @@ form button {
     margin: 0.5em;
 }
 
+#newPhotoForm {
+    display: none;
+}

@@ -12,13 +12,19 @@ include_once "navbar.php";
 
 <body>
     <div class="base-container">
+            <?php if(isset($messages)) { ?>
+            <div class="messages">
+            <?php foreach ($messages as $message) {
+                    echo $message;
+            }?>
+            </div>
+            <?php } ?>
         <div class="profile">
-            <h1 class="profile">Witaj <?= $profile->getName().' '.$profile->getSurname() ?> !</h1>
             <section class="user_data">
+                <h1 class="profile">Witaj <?= $profile->getName().' '.$profile->getSurname() ?> !</h1>
                 <h2 class="profile">
                     Twoje dane:
                 </h2>
-                <div id="data">
                     <form action="changeUserData" method="POST">
                         <label for="email">EMAIL:</label>
                         <input name="email" class="user-input" id="email" readonly value="<?=$profile->getEmail() ?>">
@@ -53,6 +59,14 @@ include_once "navbar.php";
                         <label for="points">PUNKTY:</label>
                         <p id="points"><?=$profile->getPoints() ?></p>
                     </div>
+            </section>
+            <section class="user_photo">
+                <img class="photo" src="public/uploads/users/<?=$profile->getImage() ?>">
+                <button type="button" id="initial-btn">Dodaj zdjęcie profilowe</button>
+                <form id="newPhotoForm" action="changeUserPhoto" method="POST" ENCTYPE="multipart/form-data">
+                    <input type="file" name="file">
+                    <button type="submit">Zatwierdź</button>
+                </form>
             </section>
         </div>
     </div>
