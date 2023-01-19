@@ -99,7 +99,8 @@ class UserRepository extends Repository
         if($property == "email")
             $sql = "UPDATE users SET $property = :value where id = :id";
         else
-            $sql = "UPDATE users_details ud SET $property = :value FROM users u where u.id = :id AND u.id_user_details = ud.id";
+            $sql = "UPDATE users_details ud SET $property = :value FROM users u 
+                    WHERE u.id = :id AND u.id_user_details = ud.id";
 
         $statement = $this->database->connect()->prepare($sql);
         $statement->bindParam(':value', $value, PDO::PARAM_STR);

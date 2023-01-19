@@ -50,7 +50,7 @@ include_once "navbar.php";
                         <input name="date" type="date" placeholder="Data">
                         <input name="time" type="time" placeholder="Czas">
                         <input type="file" name="file">
-                        <button type="submit">Wyślij</button>
+                        <button class="classic" type="submit">Wyślij</button>
                     </form>
                 </section>
                 <section class="map">

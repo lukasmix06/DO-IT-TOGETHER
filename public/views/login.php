@@ -27,7 +27,7 @@
                 <?php } ?>
                 <input name="email" type="text" placeholder="email@email.com">
                 <input name="password" type="password" placeholder="password">
-                <button type="submit">Zaloguj się</button>
+                <button type="submit" class="classic">Zaloguj się</button>
                 <text>Nie masz jeszcze konta?</text>
                 <a href="register" class="button">Zarejestruj się</a>
             </form>

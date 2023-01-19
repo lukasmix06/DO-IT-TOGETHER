@@ -36,7 +36,7 @@
             <input name="name" type="text" placeholder="name">
             <input name="surname" type="text" placeholder="surname">
             <input name="phone" type="text" placeholder="phone">
-            <button type="submit">REGISTER</button>
+            <button type="submit" class="classic">REGISTER</button>
         </form>
     </div>
 </div>

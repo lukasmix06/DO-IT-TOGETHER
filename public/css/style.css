@@ -87,7 +87,7 @@ form.login {
 
 }
 
-button {
+button.edit-btn, button.submit-btn, button#geocoder-btn, button#initial-btn, button.classic {
     background: transparent linear-gradient(180deg, #B400FF 0%, #5A0080 100%) 0% 0% no-repeat padding-box;
     box-shadow: 0px 3px 6px #00000029;
     border-radius: 27px;
@@ -221,12 +221,13 @@ ul {
     padding: 0;
 }
 
-li {
+li.navbar {
     display: flex;
     flex-direction: row;
     flex-grow: 1;
     height: 100%;
     align-self: center;
+    justify-content: center;
 }
 
 header {

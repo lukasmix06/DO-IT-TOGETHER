@@ -65,7 +65,7 @@ include_once "navbar.php";
                 <button type="button" id="initial-btn">Dodaj zdjęcie profilowe</button>
                 <form id="newPhotoForm" action="changeUserPhoto" method="POST" ENCTYPE="multipart/form-data">
                     <input type="file" name="file">
-                    <button type="submit">Zatwierdź</button>
+                    <button type="submit" class="classic">Zatwierdź</button>
                 </form>
             </section>
         </div>
