@@ -64,4 +64,11 @@ class UserController extends AppController
 
         return $this->render('profile', ['messages' => $this->messages, 'profile' => $profile]);
     }
+
+    public function users() {
+        session_start();
+
+        $users = $this->user_repository->getUsers();
+        $this->render('users', ['users' => $users]);
+    }
 }

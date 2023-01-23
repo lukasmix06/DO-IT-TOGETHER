@@ -16,7 +16,6 @@ class ActivityController extends AppController {
         $this->activityRepository = new ActivityRepository();
     }
 
-
     public function activities()
     {
         session_start();
@@ -35,7 +34,8 @@ class ActivityController extends AppController {
             $returnData[] = [
                 'type' => 'Feature'.$activity->getID(),
                 'properties' => [
-                    'description' => '<strong>'.$activity->getTitle().'</strong><p>'.$activity->getDescription().'</p>',
+                    'description' => '<strong>'.$activity->getTitle().
+                        '</strong><p>'.$activity->getDescription().'</p>',
                     'icon' => 'marker-editor'
                 ],
                 'geometry' => [

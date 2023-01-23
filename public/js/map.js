@@ -1,6 +1,7 @@
 const YOUR_MAPBOX_ACCESS_TOKEN = 'pk.eyJ1IjoibHVrYXNtaXgwNiIsImEiOiJjbGM1NG03d3cwdXU3M3ZwZ2Q0OGNlN3hoIn0.RcACHAiwtFqWZ-U6FuaHFg';
+//na razie jest jakiś publiczny token, nie wiem, mogą być problemy
 
-mapboxgl.accessToken = YOUR_MAPBOX_ACCESS_TOKEN; //na razie jest jakiś publiczny token, nie wiem, mogą być problemy
+mapboxgl.accessToken = YOUR_MAPBOX_ACCESS_TOKEN;
 var map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/lukasmix06/clcg0s7sd004z14nvxih3vgmc', //'mapbox://styles/mapbox/streets-v11',//'mapbox://styles/lukasmix06/clc7tzlan000g14qihmm8wlgb',
@@ -11,6 +12,7 @@ var map = new mapboxgl.Map({
 Add an event listener that runs
 when a user clicks on the map element.
 */
+
 /*map.on('click', (event) => {
     // If the user clicked on one of your markers, get its information.
     const features = map.queryRenderedFeatures(event.point, {
@@ -40,15 +42,16 @@ map.addControl(
         positionOptions: {
             enableHighAccuracy: true
         },
-// When active the map will receive updates to the device's location as it changes.
+        // When active the map will receive updates to the device's location as it changes.
         trackUserLocation: true,
-// Draw an arrow next to the location dot to indicate which direction the device is heading.
+        // Draw an arrow next to the location dot to indicate which direction the device is heading.
         //showUserHeading: true
     })
 );
 
 map.on('load', function () {
-    //place object we will add our events to
+    /* creating an object to which we will add
+     places of our activities */
     map.addSource('places',{
         'type': 'geojson',
         'data': {
@@ -56,24 +59,30 @@ map.on('load', function () {
             'features': []
         }
     });
-    //add place object to map
+    /* adding new layer to map which will include
+     our places object */
     map.addLayer({
         'id': 'places',
         'type': 'symbol',
         'source': 'places',
         'layout': {
-            'icon-image': '{icon}',//'./public/img/marker-editor.svg',
+            'icon-image': '{icon}',
             'icon-allow-overlap': true
         }
     });
 
-    //Handle popups
-    map.on('click', 'places', (e) => {
-        const coordinates = e.features[0].geometry.coordinates.slice();
-        const description = e.features[0].properties.description;
-        while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
-            coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
-        }
+
+    /*while (Math.abs(element.lngLat.lng - coordinates[0]) > 180) {
+        coordinates[0] += element.lngLat.lng > coordinates[0] ? 360 : -360;
+    }*/
+
+
+    /*  Event listener that runs and handles popups
+    when a user clicks on the map element. */
+    map.on('click', 'places', (element) => {
+        const coordinates = element.features[0].geometry.coordinates.slice();
+        const description = element.features[0].properties.description;
+
         new mapboxgl.Popup()
             .setLngLat(coordinates)
             .setHTML(description)
@@ -88,10 +97,11 @@ map.on('load', function () {
         map.getCanvas().style.cursor = '';
     });
 
-    //get our data from php function
+
     getAllEvents();
 });
 
+//Getting activities data from php function
 function getAllEvents(){
     $.ajax({
         url: "/getActivitiesToMap",
@@ -104,8 +114,8 @@ function getAllEvents(){
                 'features': eventData
             });
         },
-        error: function (e) {
-            console.log(e);
+        error: function (el) {
+            console.log(el);
         }
     });
 }

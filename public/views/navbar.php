@@ -28,7 +28,7 @@
                 </li>
                 <li class="navbar">
                     <i class="fas fa-user-friends"></i>
-                    <a href="#" class="button">Ludzie</a>
+                    <a href="users" class="button">Ludzie</a>
                 </li>
                 <li class="navbar">
                     <i class="fas fa-sign-out-alt"></i>

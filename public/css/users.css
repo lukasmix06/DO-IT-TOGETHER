@@ -1,0 +1,165 @@
+section.users {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 1em;
+    padding: 0.5em;
+}
+
+.users>div>img {
+    height: 35vh;
+    overflow: hidden;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 1em 1em 0 0;
+}
+
+.users>div>div {
+    background: transparent linear-gradient(100deg, #B400FF 0%, #5A0080 100%) 0% 0% no-repeat padding-box;
+    text-align: left;
+    font: normal normal bold 20px/30px Arial;
+    letter-spacing: 0px;
+    color: #FFFEFE;
+    padding: 0.5em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 35vh;
+    overflow: hidden;
+}
+
+.users>div {
+    border: 1px solid gray;
+    border-radius: 1em 1em 0 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 70vh;
+    overflow: hidden;
+}
+
+.users p {
+    overflow: auto;
+    margin: 0;
+}
+
+p.description {
+    height: 7em;
+}
+
+.social-section {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.social-section>i {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    font-size: large;
+}
+
+.dropdown {
+    width: 100%;
+    display: flex;
+}
+
+#dropbtn {
+    display: none;
+}
+
+h1 {
+    font-size: 30px;
+    margin: 0;
+}
+
+h2 {
+    margin: 0;
+}
+
+.fa-male:before {
+    margin-right: 1em;
+}
+
+div.basic-content {
+    display: flex;
+    padding: 1em;
+}
+
+.place-section {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+}
+
+#place-input {
+    display: none;
+}
+
+@media only screen and (max-device-width: 420px) {
+    h2 {
+        font-size: 30px;
+    }
+
+    section {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 0.5em;
+        padding: 0.5em;
+        overflow: auto;
+    }
+
+    .dropdown {
+        width: auto;
+        margin-top: 1em;
+        display: inline-block;
+    }
+
+    #dropbtn {
+        display: flex;
+        font-size: 4em;
+        color: white;
+        align-items: center;
+    }
+
+    ul {
+        display: none;
+        position: absolute;
+        z-index: 1;
+        flex-wrap: wrap;
+        right: 0;
+        width: unset;
+    }
+
+    nav {
+        justify-content: space-around;
+    }
+
+    /* Show the dropdown menu on hover */
+    .dropdown:hover > ul {
+        display: block;
+    }
+
+    ul > li {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        background-color: #f9f9f9;
+        width: 15em;
+        /*display: block;*/
+    }
+
+    nav .button {
+        background: unset;
+        font: normal normal normal 49px/68px Candara;
+    }
+
+    header {
+        padding: 0.5em;
+    }
+
+    .fa-plus {
+        margin-right: 1em;
+        font-size: xxx-large;
+    }
+}

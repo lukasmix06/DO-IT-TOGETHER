@@ -107,5 +107,36 @@ class UserRepository extends Repository
         $statement->bindParam(':id', $id, PDO::PARAM_INT);
         $statement->execute();
     }
+
+    public function getUsers(): array
+    {
+        $result = [];
+
+        $statement = $this->database->connect()->prepare('
+            SELECT * FROM users u LEFT JOIN users_details ud 
+            ON u.id_user_details = ud.id
+        ');
+        $statement->execute();
+        $users = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+        foreach($users as $user) {
+            $result[] = new User(
+                $user['id'],
+                $user['email'],
+                $user['password'],
+                $user['name'],
+                $user['surname'],
+                $user['phone'],
+                $user['gender'],
+                $user['age'],
+                $user['place_coordinates'],
+                $user['self_description'],
+                $user['points'],
+                $user['image']
+            );
+        }
+
+        return $result;
+    }
 }
 
