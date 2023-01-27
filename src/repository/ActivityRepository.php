@@ -77,7 +77,8 @@ class ActivityRepository extends Repository
                 $activity['image'],
                 $activity['participants'],
                 $activity['participants_max'],
-                $activity['id']
+                $activity['id'],
+                $activity['id_founder']
             );
         }
 
@@ -98,23 +99,57 @@ class ActivityRepository extends Repository
         return $statement->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function participate(int $id)
+    public function participate(int $id_activity, int $id_user)
     {
-        $statement = $this->database->connect()->prepare('
-            UPDATE activities SET participants = participants + 1 WHERE id = :id AND participants<=activities.participants_max
+        $statement1 = $this->database->connect()->prepare('
+            UPDATE activities SET participants = participants + 1 WHERE id = :id_activity
         ');
 
-        $statement->bindParam(':id', $id, PDO::PARAM_INT);
-        $statement->execute();
+        $statement1->bindParam(':id_activity', $id_activity, PDO::PARAM_INT);
+        $statement1->execute();
+
+        $statement2 = $this->database->connect()->prepare('
+            INSERT INTO users_activities(id_user, id_activity) VALUES (:id_user, :id_activity)
+        ');
+
+        $statement2->bindParam(':id_activity', $id_activity, PDO::PARAM_INT);
+        $statement2->bindParam(':id_user', $id_user, PDO::PARAM_INT);
+        $statement2->execute();
     }
 
-    public function unparticipate(int $id)
+    public function unparticipate(int $id_activity, int $id_user)
     {
-        $statement = $this->database->connect()->prepare('
-            UPDATE activities SET participants = participants - 1 WHERE id = :id AND participants>=0
+        $statement1 = $this->database->connect()->prepare('
+            UPDATE activities SET participants = participants - 1 WHERE id = :id_activity AND participants>=0        
         ');
 
-        $statement->bindParam(':id', $id, PDO::PARAM_INT);
+        $statement1->bindParam(':id_activity', $id_activity, PDO::PARAM_INT);
+        $statement1->execute();
+
+        $statement2 = $this->database->connect()->prepare('
+            DELETE FROM users_activities WHERE id_activity = :id_activity and id_user = :id_user
+        ');
+
+        $statement2->bindParam(':id_activity', $id_activity, PDO::PARAM_INT);
+        $statement2->bindParam(':id_user', $id_user, PDO::PARAM_INT);
+        $statement2->execute();
+    }
+
+    public function getActivitiesIdByUser(int $id_user): array
+    {
+        $result = [];
+
+        $statement = $this->database->connect()->prepare('
+            SELECT id_activity FROM users_activities WHERE id_user = :id_user
+        ');
+        $statement->bindParam(':id_user', $id_user, PDO::PARAM_INT);
         $statement->execute();
+        $activitiesId = $statement->fetchAll(PDO::FETCH_ASSOC); //zamiast samego fetch
+
+        foreach($activitiesId as $activityId) {
+            $result[] = $activityId["id_activity"];
+        }
+
+        return $result;
     }
 }

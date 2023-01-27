@@ -19,23 +19,21 @@ include_once "navbar.php";
                     <input placeholder="Wyszukaj użytkownika">
                 </div>
             </header>
-            <div class="basic-content">
                 <section class="users">
                     <?php foreach($users as $user): ?>
                         <div id="<?= $user->getId(); ?>">
                             <img src="public/uploads/users/<?= $user->getImage() ?>">
                             <div>
                                 <h2><?= $user->getName().' '.$user->getSurname() ?></h2>
-                                <p><?= $user->getAge() ?></p>
+                                <p><?= $user->getAge() ?> lat</p>
                                 <p class="description"><?= $user->getSelfDescription() ?></p>
                                 <div class="social-section">
-                                    <i class="fa-solid fa-hand-sparkles">Dodaj do przyjaciół</i>
+                                    <i class="fa-solid fa-hand-sparkles">Dodaj</i>
                                 </div>
                             </div>
                         </div>
                     <?php endforeach; ?>
                 </section>
-            </div>
         </main>
     </div>
 </body>

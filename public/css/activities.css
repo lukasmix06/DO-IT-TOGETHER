@@ -60,6 +60,16 @@ p.description {
     flex-wrap: wrap;
     align-content: center;
     font-size: large;
+    background: white;
+    padding: 0.5em;
+}
+
+i#join {
+    color: black;
+}
+
+i#resign {
+    color: #1bff00;
 }
 
 section.activity-form {

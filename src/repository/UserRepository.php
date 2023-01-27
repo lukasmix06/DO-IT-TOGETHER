@@ -49,7 +49,6 @@ class UserRepository extends Repository
             $user['phone'],
             $user['gender'],
             $user['age'],
-            $user['place_coordinates'],
             $user['self_description'],
             $user['points'],
             $user['image']
@@ -108,16 +107,39 @@ class UserRepository extends Repository
         $statement->execute();
     }
 
-    public function getUsers(): array
+    public function getUsers(int $user_id): array
     {
         $result = [];
 
+        $statement1 = $this->database->connect()->prepare('
+            SELECT * FROM users u LEFT JOIN users_details ud 
+            ON u.id_user_details = ud.id WHERE u.id = :user_id
+        ');
+        $statement1->bindParam(':user_id', $user_id, PDO::PARAM_INT);
+        $statement1->execute();
+        $login_user = $statement1->fetch(PDO::FETCH_ASSOC);
+
         $statement = $this->database->connect()->prepare('
             SELECT * FROM users u LEFT JOIN users_details ud 
-            ON u.id_user_details = ud.id
+            ON u.id_user_details = ud.id WHERE u.id != :user_id ORDER BY u.id
         ');
+        $statement->bindParam(':user_id', $user_id, PDO::PARAM_INT);
         $statement->execute();
         $users = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+        $result[] = new User(
+            $login_user['id'],
+            $login_user['email'],
+            $login_user['password'],
+            $login_user['name'],
+            $login_user['surname'],
+            $login_user['phone'],
+            $login_user['gender'],
+            $login_user['age'],
+            $login_user['self_description'],
+            $login_user['points'],
+            $login_user['image']
+        );
 
         foreach($users as $user) {
             $result[] = new User(
@@ -129,7 +151,6 @@ class UserRepository extends Repository
                 $user['phone'],
                 $user['gender'],
                 $user['age'],
-                $user['place_coordinates'],
                 $user['self_description'],
                 $user['points'],
                 $user['image']

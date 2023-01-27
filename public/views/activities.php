@@ -43,11 +43,12 @@ include_once "navbar.php";
                             <div>
                                 <h2><?= $activity->getTitle() ?></h2>
                                 <p><?= $activity->getDate()." ".$activity->getTime() ?></p>
+                                <p><?= $activity->getPlace() ?></p>
                                 <p class="description"><?= $activity->getDescription() ?></p>
                                 <div class="social-section">
-                                    <i id="join" class="fas fa-male">
-                                        <?= $activity->getParticipants()." / ".$activity->getParticipantsMax() ?>
-                                    </i>
+                                    <?php if(in_array($activity->getId(), $user_activities_id)) { $id="resign"; }
+                                    else { $id="join"; } ?>
+                                    <i id="<?= $id ?>" class="fas fa-male"><?=$activity->getParticipants()." / ".$activity->getParticipantsMax()?></i>
                                 </div>
                             </div>
                         </div>

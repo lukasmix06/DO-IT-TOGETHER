@@ -1,12 +1,12 @@
 section.users {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     grid-gap: 1em;
     padding: 0.5em;
 }
 
 .users>div>img {
-    height: 35vh;
+    height: 45vh;
     overflow: hidden;
     width: 100%;
     object-fit: cover;
@@ -33,7 +33,7 @@ section.users {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 70vh;
+    height: 75vh;
     overflow: hidden;
 }
 
@@ -74,16 +74,8 @@ h1 {
 }
 
 h2 {
+    font-size: 16px;
     margin: 0;
-}
-
-.fa-male:before {
-    margin-right: 1em;
-}
-
-div.basic-content {
-    display: flex;
-    padding: 1em;
 }
 
 .place-section {
@@ -94,6 +86,14 @@ div.basic-content {
 
 #place-input {
     display: none;
+}
+
+.fa-hand-sparkles:before {
+    margin-right: 1em;
+}
+
+.fa-hand-sparkles {
+    color: black;
 }
 
 @media only screen and (max-device-width: 420px) {

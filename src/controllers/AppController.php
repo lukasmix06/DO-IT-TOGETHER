@@ -6,6 +6,7 @@ class AppController {
     const MAX_FILE_SIZE = 1024*1024;
     const SUPPORTED_TYPES = ["image/png", 'image/jpeg'];
     protected $messages = []; //będziemy tu dodawali nasze zmienne
+    protected $if_message_positive;
 
 
     public function __construct()

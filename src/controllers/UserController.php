@@ -68,7 +68,7 @@ class UserController extends AppController
     public function users() {
         session_start();
 
-        $users = $this->user_repository->getUsers();
+        $users = $this->user_repository->getUsers($_SESSION['user']);
         $this->render('users', ['users' => $users]);
     }
 }

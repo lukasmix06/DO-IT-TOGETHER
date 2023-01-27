@@ -19,9 +19,10 @@ class ActivityController extends AppController {
     public function activities()
     {
         session_start();
-
+        $user_activities_id = $this->activityRepository->getActivitiesIdByUser($_SESSION['user']);
+        //var_dump($user_activities_id);
         $activities = $this->activityRepository->getActivities();
-        $this->render('activities', ['activities' => $activities]);
+        $this->render('activities', ['activities' => $activities, 'user_activities_id' => $user_activities_id]);
     }
 
     public function getActivitiesToMap() {
@@ -107,12 +108,14 @@ class ActivityController extends AppController {
     }
 
     public function participate(int $id) {
-        $this->activityRepository->participate($id);
+        session_start();
+        $this->activityRepository->participate($id, $_SESSION['user']);
         http_response_code(200); //nie trzeba wysyłąć żadnej informacji zwrotnej poza tym
     }
 
     public function unparticipate(int $id) {
-        $this->activityRepository->unparticipate($id);
+        session_start();
+        $this->activityRepository->unparticipate($id, $_SESSION['user']);
         http_response_code(200);
     }
 

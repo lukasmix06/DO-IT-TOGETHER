@@ -5,19 +5,29 @@ function reactToActivity() {
     const container = participation.parentElement.parentElement.parentElement;
     const id = container.getAttribute("id");
 
-    if(participation.id === "join") {
+    const wordsArray = participation.innerHTML.split("/");
+    let nrOfParticipants = parseInt(wordsArray[0]);
+    let maxNrOfParticipants = parseInt(wordsArray[1]);
+
+    if(participation.id === "join" && nrOfParticipants < maxNrOfParticipants) {
         fetch(`/participate/${id}`)
             .then(function() {
-                participation.innerHTML = (parseInt(participation.innerHTML) + 1);
+                participation.innerHTML = (nrOfParticipants + 1) + ' / ' + maxNrOfParticipants;
+                participation.id = "resign";
             })
-        participation.id = "resign";
+        alert("Dołączyłeś do aktywności!");
     }
-    else {
+    else if(participation.id === "resign") {
         fetch(`/unparticipate/${id}`)
             .then(function() {
-                participation.innerHTML = (parseInt(participation.innerHTML) - 1);
+                participation.innerHTML = (nrOfParticipants - 1) + ' / ' + maxNrOfParticipants;
+                participation.id = "join";
             })
-        participation.id = "join";
+        alert("Zrezygnowałeś z aktywności!");
+    }
+    else {
+        participation.style.color = "red";
+        alert("Brak miejsc!");
     }
 }
 console.log(participationButtons);
