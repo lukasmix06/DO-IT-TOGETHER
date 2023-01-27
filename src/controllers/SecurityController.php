@@ -26,7 +26,6 @@ class SecurityController extends AppController
         $password = sha1($_POST['password']);
 
         $user = $this->user_repository->getUser($email);
-        //$user = new User("lukasmix06@gmail.com","kopytko","Lukasz","Jasielski");
 
         if(!$user) {
             return $this->render('login', ['messages' => ["Taki użytkownik nie istnieje!"], 'if_message_positive' => false]);
@@ -68,7 +67,7 @@ class SecurityController extends AppController
 
         //if ($email) regex trzeba by było użyć
 
-        $user = new User($email, sha1($password), $name, $surname, $phone);
+        $user = new User(0, $email, sha1($password), $name, $surname, $phone);
 
         $this->user_repository->addUser($user);
 
