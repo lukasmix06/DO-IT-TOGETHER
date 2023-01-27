@@ -29,7 +29,7 @@ class SecurityController extends AppController
         //$user = new User("lukasmix06@gmail.com","kopytko","Lukasz","Jasielski");
 
         if(!$user) {
-            return $this->render('login', ['messages' => ["Taki użytkownik nie istnieje!"]]);
+            return $this->render('login', ['messages' => ["Taki użytkownik nie istnieje!"], 'if_message_positive' => false]);
         }
 
         //TEN WARUNEK RÓWNA SIĘ WARUNKOWI POPRZEDNIEMU - BŁĘDNY
@@ -38,7 +38,7 @@ class SecurityController extends AppController
 //        }
 
         if($user->getPassword() != $password) {
-            return $this->render("login", ['messages' => ["Złe hasło!"]]);
+            return $this->render("login", ['messages' => ["Złe hasło!"], 'if_message_positive' => false]);
         }
 
         $_SESSION['user'] = $user->getId();
@@ -63,7 +63,7 @@ class SecurityController extends AppController
         $phone = $_POST['phone'];
 
         if ($password !== $confirmedPassword) {
-            return $this->render('register', ['messages' => ['Hasła muszą być takie same!']]);
+            return $this->render('register', ['messages' => ['Hasła muszą być takie same!'], 'if_message_positive' => false]);
         }
 
         //if ($email) regex trzeba by było użyć
@@ -72,7 +72,7 @@ class SecurityController extends AppController
 
         $this->user_repository->addUser($user);
 
-        return $this->render('login', ['messages' => ['Gratulacje, zostałeś nowym użytkownikiem!']]);
+        return $this->render('login', ['messages' => ['Gratulacje, zostałeś nowym użytkownikiem!'], 'if_message_positive' => true]);
     }
 
     public function logout() {
@@ -82,6 +82,6 @@ class SecurityController extends AppController
 
         session_destroy();
 
-        return $this->render('login', ['messages' => ['Zostałeś poprawnie wylogowany. Do zobaczenia!']]);
+        return $this->render('login', ['messages' => ['Zostałeś poprawnie wylogowany. Do zobaczenia!'], 'if_message_positive' => true]);
     }
 }

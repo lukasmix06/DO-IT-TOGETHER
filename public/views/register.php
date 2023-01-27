@@ -23,8 +23,10 @@
     </div>-->
     <div class="login-container">
         <form class="register" action="register" method="POST">
-            <?php if(isset($messages) && $messages[0]!='') { ?>
-                <div class="messages">
+            <?php if(isset($messages) && $messages[0]!='') {
+                if($if_message_positive) { $category = "happy";}
+                else { $category = "sad";} ?>
+                <div class="<?=$category?> messages">
                     <?php foreach ($messages as $message) {
                         echo $message;
                     }?>

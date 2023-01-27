@@ -87,10 +87,10 @@ class ActivityController extends AppController {
             $activity = new Activity($_POST['title'], $_POST['description'], $place, $longitude, $latitude, $_POST['sport'], $_POST['date'], $_POST['time'], $_FILES['file']['name'], $founderId);
             $this->activityRepository->addActivity($activity);
 
-            return $this->render("activities", ['messages' => $this->messages, 'activities' => $this->activityRepository->getActivities()]);
+            return $this->render("activities", ['messages' => $this->messages, 'if_message_positive' => $this->if_message_positive, 'activities' => $this->activityRepository->getActivities()]);
         }
 
-        return $this->render('add-activity', ['messages' => $this->messages]);
+        return $this->render('add-activity', ['messages' => $this->messages, 'if_message_positive' => $this->if_message_positive]);
     }
 
     public function search() //odbieranie na backendzie zapytania

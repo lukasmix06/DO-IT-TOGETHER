@@ -12,13 +12,15 @@ include_once "navbar.php";
 
 <body>
     <div class="base-container">
-            <?php if(isset($messages)) { ?>
-            <div class="messages">
-            <?php foreach ($messages as $message) {
+        <?php if(isset($messages) && $messages[0]!='') {
+            if($if_message_positive) { $category = "happy";}
+            else { $category = "sad";} ?>
+            <div class="<?=$category?> messages">
+                <?php foreach ($messages as $message) {
                     echo $message;
-            }?>
+                }?>
             </div>
-            <?php } ?>
+        <?php } ?>
         <div class="profile">
             <section class="user_data">
                 <h1 class="profile">Witaj <?= $profile->getName().' '.$profile->getSurname() ?> !</h1>

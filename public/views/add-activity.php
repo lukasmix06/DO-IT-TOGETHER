@@ -24,8 +24,10 @@ include_once "navbar.php";
             <div class="basic-content">
                 <section class="activity-form">
                     <h1>WRZUĆ NOWĄ AKTYWNOŚĆ</h1>
-                    <?php if(isset($messages) && $messages[0]!='') { ?>
-                        <div class="messages">
+                    <?php if(isset($messages) && $messages[0]!='') {
+                        if($if_message_positive) { $category = "happy";}
+                        else { $category = "sad";} ?>
+                        <div class="<?=$category?> messages">
                             <?php foreach ($messages as $message) {
                                 echo $message;
                             }?>

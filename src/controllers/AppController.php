@@ -6,7 +6,7 @@ class AppController {
     const MAX_FILE_SIZE = 1024*1024;
     const SUPPORTED_TYPES = ["image/png", 'image/jpeg'];
     protected $messages = []; //będziemy tu dodawali nasze zmienne
-    protected $if_message_positive;
+    protected $if_message_positive = false;
 
 
     public function __construct()
@@ -28,11 +28,13 @@ class AppController {
     {
         if($file['size'] > self::MAX_FILE_SIZE) {
             $this->messages[] = "File is too large for destination file system.";
+            $this->if_message_positive = false;
             return false;
         }
 
         if(!isset($file['type']) || !in_array($file['type'], self::SUPPORTED_TYPES)) {
             $this->messages[] = "File type is not supported";
+            $this->if_message_positive = false;
             return false;
         }
 

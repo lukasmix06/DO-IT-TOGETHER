@@ -62,7 +62,7 @@ class UserController extends AppController
 
         }
 
-        return $this->render('profile', ['messages' => $this->messages, 'profile' => $profile]);
+        return $this->render('profile', ['messages' => $this->messages, 'if_message_positive' => $this->if_message_positive, 'profile' => $profile]);
     }
 
     public function users() {

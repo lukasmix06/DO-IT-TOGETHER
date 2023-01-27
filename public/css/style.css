@@ -117,6 +117,14 @@ input, textarea {
     margin: 0.2em auto;
 }
 
+.happy {
+    background: #1bff00;
+}
+
+.sad {
+    background: orangered;
+}
+
 
 
 
