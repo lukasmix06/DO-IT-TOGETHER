@@ -92,8 +92,12 @@ h2 {
     margin-right: 1em;
 }
 
-.fa-hand-sparkles {
+i#add {
     color: black;
+}
+
+i#remove {
+    color: #1bff00;
 }
 
 @media only screen and (max-device-width: 420px) {

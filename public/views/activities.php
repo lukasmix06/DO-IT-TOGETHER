@@ -4,7 +4,7 @@
     <script type="text/javascript" src="./public/js/searching.js" defer></script>
     <script type="text/javascript" src="./public/js/participation.js" defer></script>
     <script type="text/javascript" src="./public/js/map.js" defer></script>
-
+    <script type="text/javascript" src="./public/js/my-activities.js" defer></script>
 
     <script src='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css' rel='stylesheet' />
@@ -28,6 +28,10 @@ include_once "navbar.php";
                 <div class="search-bar">
                     <input placeholder="wyszukaj aktywność">
                 </div>
+                <div id="my-activities-checkbox">
+                    <input id="my-activities" type="checkbox" value="my-activities">
+                    <label for="my-activities">Moje aktywności</label>
+                </div>
                 <div class="add-activity">
                     <a href="addActivity">
                         <i class="fas fa-plus"></i>
@@ -42,9 +46,9 @@ include_once "navbar.php";
                             <img src="public/uploads/<?= $activity->getImage() ?>">
                             <div>
                                 <h2><?= $activity->getTitle() ?></h2>
-                                <p><?= $activity->getDate()." ".$activity->getTime() ?></p>
-                                <p><?= $activity->getPlace() ?></p>
-                                <p class="description"><?= $activity->getDescription() ?></p>
+                                <p class="description"><?= $activity->getDate()." ".$activity->getTime()?><br>
+                                <?= $activity->getPlace() ?><br>
+                                <?= $activity->getDescription() ?></p>
                                 <div class="social-section">
                                     <?php if(in_array($activity->getId(), $user_activities_id)) { $id="resign"; }
                                     else { $id="join"; } ?>
@@ -63,13 +67,15 @@ include_once "navbar.php";
 </body>
 
 <template id="activity-template">
-    <div id="">
+    <div class="activity-id" id="">
         <img src="">
         <div>
             <h2>title</h2>
-            <p>description</p>
+            <p id="datetime"></p>
+            <p id="place"></p>
+            <p id="description"></p>
             <div class="social-section">
-                <i class="fas fa-male">0</i>
+                <i id="join" class="fas fa-male">0</i>
             </div>
         </div>
     </div>

@@ -159,5 +159,42 @@ class UserRepository extends Repository
 
         return $result;
     }
+
+    public function getUserFriendsId(string $id_user): array {
+        $result = [];
+
+        $statement = $this->database->connect()->prepare('
+            SELECT id_user2 FROM friends WHERE id_user1 = :id_user 
+        ');
+        $statement->bindParam(':id_user', $id_user, PDO::PARAM_INT);
+        $statement->execute();
+        $friendsId = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+        foreach($friendsId as $friendId) {
+            $result[] = $friendId["id_user2"];
+        }
+
+        return $result;
+    }
+
+    public function addFriend(int $id_friend, int $id_user)
+    {
+        $statement = $this->database->connect()->prepare('
+           INSERT INTO friends(id_user1, id_user2) VALUES (:id_user, :id_friend) 
+        ');
+        $statement->bindParam(':id_user', $id_user, PDO::PARAM_INT);
+        $statement->bindParam(':id_friend', $id_friend, PDO::PARAM_INT);
+        $statement->execute();
+    }
+
+    public function removeFriend(int $id_friend, int $id_user)
+    {
+        $statement = $this->database->connect()->prepare('
+           DELETE FROM friends WHERE id_user1 = :id_user and id_user2 = :id_friend
+        ');
+        $statement->bindParam(':id_user', $id_user, PDO::PARAM_INT);
+        $statement->bindParam(':id_friend', $id_friend, PDO::PARAM_INT);
+        $statement->execute();
+    }
 }
 

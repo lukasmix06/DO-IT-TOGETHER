@@ -2,6 +2,7 @@
 
 <head>
     <link rel="stylesheet" type="text/css" href="public/css/users.css">
+    <script type="text/javascript" src="./public/js/friendship.js" defer></script>
     <!--<script type="text/javascript" src="./public/js/searching.js" defer></script>-->
     <script src="https://kit.fontawesome.com/11ac319bc2.js" crossorigin="anonymous"></script>
     <title>USERS</title>
@@ -28,7 +29,9 @@ include_once "navbar.php";
                                 <p><?= $user->getAge() ?> lat</p>
                                 <p class="description"><?= $user->getSelfDescription() ?></p>
                                 <div class="social-section">
-                                    <i class="fa-solid fa-hand-sparkles">Dodaj</i>
+                                    <?php if(in_array($user->getId(), $user_friends_id)) { $id="remove"; $action="Usun";}
+                                    else { $id="add"; $action="Dodaj";} ?>
+                                    <i class="fa-solid fa-hand-sparkles" id="<?= $id ?>"><?=$action?></i>
                                 </div>
                             </div>
                         </div>

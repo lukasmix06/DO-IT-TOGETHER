@@ -46,7 +46,7 @@ section.activities {
 }
 
 p.description {
-    height: 7em;
+    height: -webkit-fill-available;
 }
 
 .social-section {
@@ -62,6 +62,7 @@ p.description {
     font-size: large;
     background: white;
     padding: 0.5em;
+    margin-top: 0.3em;
 }
 
 i#join {
@@ -101,6 +102,7 @@ h1 {
 
 h2 {
     margin: 0;
+    font-size: 16px;
 }
 
 .fa-male:before {
@@ -118,8 +120,8 @@ section.map {
 }
 
 div#map {
-    width: 50vw;
-    height: 80vh;
+    width: 46vw;
+    height: 72vh;
 }
 
 .place-section {
@@ -143,6 +145,17 @@ div#map {
 
 #place-input {
     display: none;
+}
+
+#my-activities-checkbox{
+    display: flex;
+    width: 30vw;
+    align-items: center;
+    justify-content: center;
+}
+
+#my-activities {
+    width: 13px;
 }
 
 @media only screen and (max-device-width: 420px) {

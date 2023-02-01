@@ -21,6 +21,9 @@ Routing::post('addMarkerToMap', 'ActivityController');
 Routing::post('changeUserData', 'UserController');
 Routing::post('changeUserPhoto','UserController');
 Routing::get('users', 'UserController');
+Routing::get('addFriend', 'UserController');
+Routing::get('removeFriend', 'UserController');
+
 
 //TODO - nie dodano funkcji validate() do routingu!!!!
 

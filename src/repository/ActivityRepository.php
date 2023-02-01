@@ -91,7 +91,8 @@ class ActivityRepository extends Repository
         //dać wyszukiwanie po większej ilosci parametrów
         $statement = $this->database->connect()->prepare('
             SELECT * FROM activities WHERE LOWER(title) LIKE :search OR 
-                                           LOWER(description) LIKE :search
+                                           LOWER(description) LIKE :search OR
+                                           LOWER(place) LIKE :search
         ');
         $statement->bindParam(':search', $searchedFraze, PDO::PARAM_STR);
         $statement->execute();

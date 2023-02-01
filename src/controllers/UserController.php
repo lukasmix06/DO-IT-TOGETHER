@@ -68,7 +68,20 @@ class UserController extends AppController
     public function users() {
         session_start();
 
+        $user_friends_id = $this->user_repository->getUserFriendsId($_SESSION['user']);
         $users = $this->user_repository->getUsers($_SESSION['user']);
-        $this->render('users', ['users' => $users]);
+        $this->render('users', ['users' => $users, 'user_friends_id' => $user_friends_id]);
+    }
+
+    public function addFriend(int $id) {
+        session_start();
+        $this->user_repository->addFriend($id, $_SESSION['user']);
+        http_response_code(200);
+    }
+
+    public function removeFriend(int $id) {
+        session_start();
+        $this->user_repository->removeFriend($id, $_SESSION['user']);
+        http_response_code(200);
     }
 }

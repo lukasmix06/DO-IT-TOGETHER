@@ -246,7 +246,7 @@ header {
 }
 
 .search-bar {
-    width: 70%;
+    width: -webkit-fill-available;
 }
 
 
