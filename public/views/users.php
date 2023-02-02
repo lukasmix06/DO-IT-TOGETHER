@@ -3,6 +3,7 @@
 <head>
     <link rel="stylesheet" type="text/css" href="public/css/users.css">
     <script type="text/javascript" src="./public/js/friendship.js" defer></script>
+    <script type="text/javascript" src="./public/js/searching-users.js" defer></script>
     <!--<script type="text/javascript" src="./public/js/searching.js" defer></script>-->
     <script src="https://kit.fontawesome.com/11ac319bc2.js" crossorigin="anonymous"></script>
     <title>USERS</title>
@@ -22,12 +23,12 @@ include_once "navbar.php";
             </header>
                 <section class="users">
                     <?php foreach($users as $user): ?>
-                        <div id="<?= $user->getId(); ?>">
+                        <div class="user-box" id="<?= $user->getId(); ?>">
                             <img src="public/uploads/users/<?= $user->getImage() ?>">
                             <div>
-                                <h2><?= $user->getName().' '.$user->getSurname() ?></h2>
-                                <p><?= $user->getAge() ?> lat</p>
-                                <p class="description"><?= $user->getSelfDescription() ?></p>
+                                <h2 class="name-surname"><?= $user->getName().' '.$user->getSurname() ?></h2>
+                                <p class="description"><?= $user->getAge()." lat, ".$user->getGender() ?><br>
+                                <?= $user->getSelfDescription() ?></p>
                                 <div class="social-section">
                                     <?php if(in_array($user->getId(), $user_friends_id)) { $id="remove"; $action="Usun";}
                                     else { $id="add"; $action="Dodaj";} ?>

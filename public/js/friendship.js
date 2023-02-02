@@ -11,9 +11,7 @@ function makeFriend() {
                 friendshipStatus.innerHTML = "Usun";
                 friendshipStatus.id = "remove";
             })
-        setTimeout(function() {
-            alert("Dodałeś użytkownika do grona znajomych!");
-        }, 10000);
+        alert("Dodałeś użytkownika do grona znajomych!");
     }
     else if(friendshipStatus.id === "remove") {
         fetch(`/removeFriend/${id}`)
