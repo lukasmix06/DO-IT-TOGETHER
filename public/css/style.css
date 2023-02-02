@@ -246,8 +246,9 @@ header {
 }
 
 .search-bar {
-    width: -webkit-fill-available;
+    width: 36vw;
 }
+
 
 
 .search-bar>input {

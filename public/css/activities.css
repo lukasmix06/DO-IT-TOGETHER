@@ -147,8 +147,9 @@ div#map {
     display: none;
 }
 
-#my-activities-checkbox{
+#filters{
     display: flex;
+    direction
     width: 30vw;
     align-items: center;
     justify-content: center;
@@ -156,6 +157,30 @@ div#map {
 
 #my-activities {
     width: 13px;
+}
+
+.date-box {
+    display: inline;
+}
+
+#different-filters{
+    display: inline;
+    margin-right: 3em;
+}
+
+label {
+    font-size: 1.5em;
+}
+
+#date-filters {
+    display: flex;
+    flex-direction: column;
+}
+
+#date-to, #date-from {
+    width: fit-content;
+    margin: 0em;
+    padding: 0em 0.5em;
 }
 
 @media only screen and (max-device-width: 420px) {

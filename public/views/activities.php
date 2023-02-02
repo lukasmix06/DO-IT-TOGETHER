@@ -28,9 +28,21 @@ include_once "navbar.php";
                 <div class="search-bar">
                     <input placeholder="wyszukaj aktywność">
                 </div>
-                <div id="my-activities-checkbox">
-                    <input id="my-activities" type="checkbox" value="my-activities">
-                    <label for="my-activities">Moje aktywności</label>
+                <div id="filters">
+                    <div id="different-filters">
+                        <input id="my-activities" type="checkbox" value="my-activities">
+                        <label for="my-activities">Moje aktywności</label>
+                    </div>
+                    <div id="date-filters">
+                        <div class="date-box">
+                            <label for="date-from">Od:</label>
+                            <input id="date-from" type="date" value="<?php $date_from = new DateTime;echo $date_from->format('Y-m-d');?>">
+                        </div>
+                        <div class="date-box">
+                            <label for="date-to">Do:</label>
+                            <input id="date-to" type="date" value="<?php $date_to = $date_from->modify('+1 month'); echo $date_to->format('Y-m-d');?>">
+                        </div>
+                    </div>
                 </div>
                 <div class="add-activity">
                     <a href="addActivity">
