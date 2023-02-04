@@ -20,10 +20,24 @@ include_once "navbar.php";
                 <div class="search-bar">
                     <input placeholder="Wyszukaj użytkownika">
                 </div>
+                <div id="filters">
+                    <div id="different-filters">
+                        <input id="friends" type="checkbox" value="friends">
+                        <label for="friends">Moi znajomi</label>
+                    </div>
+                </div>
             </header>
                 <section class="users">
-                    <?php foreach($users as $user): ?>
-                        <div class="user-box" id="<?= $user->getId(); ?>">
+                    <?php $isFirst = true;
+                    foreach($users as $user):
+                        if($isFirst == true) {
+                            $style = "unique";
+                            $isFirst = false;
+                        }
+                        else {
+                            $style = "casual";
+                        }?>
+                        <div class="user-box <?= $style?>" id="<?= $user->getId(); ?>">
                             <img src="public/uploads/users/<?= $user->getImage() ?>">
                             <div>
                                 <h2 class="name-surname"><?= $user->getName().' '.$user->getSurname() ?></h2>

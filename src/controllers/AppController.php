@@ -14,6 +14,13 @@ class AppController {
         $this->request = $_SERVER["REQUEST_METHOD"]; //pobiera info czy get czy post
     }
 
+    protected function isLogged() {
+        if(!isset($_SESSION['user'])){ //if login in session is not set
+            $url = "http://$_SERVER[HTTP_HOST]";
+            header("Location: {$url}/login");
+        }
+    }
+
     protected function isGet(): bool
     {
         return $this->request === 'GET';
@@ -44,6 +51,8 @@ class AppController {
     protected function render(string $template = null, array $variables = [])
     {
         $templatePath = 'public/views/'.$template.'.php';
+
+        //var_dump($_SESSION['user']);
         $output = 'File not found';
                 
         if(file_exists($templatePath)){

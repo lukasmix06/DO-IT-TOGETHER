@@ -16,10 +16,6 @@ class Routing {
         self::$routes[$url] = $controller;
     }
 
-
-
-
-
     public static function run ($url) {
         $urlParts = explode("/", $url);
         $action = $urlParts[0];
@@ -30,7 +26,7 @@ class Routing {
 
         $controller = self::$routes[$action];
         $object = new $controller; //pod controller będzie string, można tak tworzyć obiekty w php
-        
+
         $action = $action ?: 'index';
 
         $id = $urlParts[1] ?? ''; //sprawdzamy, czy nie jest nullem

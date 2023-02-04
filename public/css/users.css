@@ -14,7 +14,6 @@ section.users {
 }
 
 .users>div>div {
-    background: transparent linear-gradient(100deg, #B400FF 0%, #5A0080 100%) 0% 0% no-repeat padding-box;
     text-align: left;
     font: normal normal bold 20px/30px Arial;
     letter-spacing: 0px;
@@ -27,14 +26,34 @@ section.users {
     overflow: hidden;
 }
 
+.unique>div>div {
+    /*visibility: hidden;*/
+    display: none;
+}
+
 .users>div {
-    border: 1px solid gray;
     border-radius: 1em 1em 0 0;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     height: 75vh;
     overflow: hidden;
+}
+
+.casual {
+    border: 1px solid gray;
+}
+
+.unique {
+    border: 2px solid #5A0080;
+}
+
+.casual>div {
+    background: transparent linear-gradient(1deg, #B400FF 0%, #5A0080 100%) 0% 0% no-repeat padding-box;
+}
+
+.unique>div {
+    background: transparent linear-gradient(1deg, #00ffc4 0%, #5A0080 100%) 0% 0% no-repeat padding-box;
 }
 
 .users p {
@@ -44,38 +63,6 @@ section.users {
 
 p.description {
     height: 7em;
-}
-
-.social-section {
-    display: flex;
-    justify-content: flex-start;
-}
-
-.social-section>i {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-content: center;
-    font-size: large;
-}
-
-.dropdown {
-    width: 100%;
-    display: flex;
-}
-
-#dropbtn {
-    display: none;
-}
-
-h1 {
-    font-size: 30px;
-    margin: 0;
-}
-
-h2 {
-    font-size: 16px;
-    margin: 0;
 }
 
 .place-section {
@@ -98,6 +85,14 @@ i#add {
 
 i#remove {
     color: #1bff00;
+}
+
+#friends {
+    width: 13px;
+}
+
+.search-bar {
+    width: 52vw;
 }
 
 @media only screen and (max-device-width: 420px) {

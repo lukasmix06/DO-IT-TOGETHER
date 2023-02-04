@@ -18,6 +18,8 @@ class UserController extends AppController
     public function profile()
     {
         session_start();
+        $this->isLogged();
+
         /*if($this->isPost()) {
             return $this->render('profile');
         }*/
@@ -32,6 +34,7 @@ class UserController extends AppController
     public function changeUserData()
     {
         session_start();
+        $this->isLogged();
         $userID = $_SESSION['user'];
 
         foreach ($_POST as $key => $value) {
@@ -67,6 +70,7 @@ class UserController extends AppController
 
     public function users() {
         session_start();
+        $this->isLogged();
 
         $user_friends_id = $this->user_repository->getUserFriendsId($_SESSION['user']);
         $users = $this->user_repository->getUsers($_SESSION['user']);

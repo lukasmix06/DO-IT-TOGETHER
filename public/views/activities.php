@@ -5,6 +5,7 @@
     <script type="text/javascript" src="./public/js/participation.js" defer></script>
     <script type="text/javascript" src="./public/js/map.js" defer></script>
     <script type="text/javascript" src="./public/js/my-activities.js" defer></script>
+    <link rel="stylesheet" type="text/css" href="public/css/activities.css">
 
     <script src='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css' rel='stylesheet' />
@@ -30,8 +31,20 @@ include_once "navbar.php";
                 </div>
                 <div id="filters">
                     <div id="different-filters">
-                        <input id="my-activities" type="checkbox" value="my-activities">
-                        <label for="my-activities">Moje aktywności</label>
+                        <div>
+                            <input id="my-activities" type="checkbox" value="my-activities">
+                            <label for="my-activities">Moje aktywności</label>
+                        </div>
+                        <input id="sport" name="sport" placeholder="Dyscyplina" list="sports">
+                        <datalist id="sports">
+                            <option value="Bieganie">
+                            <option value="Rower">
+                            <option value="Rolki">
+                            <option value="Siatkówka">
+                            <option value="Piłka nożna">
+                            <option value="Pływanie">
+                            <option value="Koszykówka">
+                        </datalist>
                     </div>
                     <div id="date-filters">
                         <div class="date-box">

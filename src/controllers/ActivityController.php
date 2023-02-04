@@ -19,6 +19,8 @@ class ActivityController extends AppController {
     public function activities()
     {
         session_start();
+        $this->isLogged();
+
         $user_activities_id = $this->activityRepository->getActivitiesIdByUser($_SESSION['user']);
         //var_dump($user_activities_id);
         $activities = $this->activityRepository->getActivities();
@@ -73,6 +75,7 @@ class ActivityController extends AppController {
 
     public function addActivity() {
         session_start();
+        $this->isLogged();
 
         if($this->isPost() && is_uploaded_file($_FILES['file']['tmp_name']) && $this->validate($_FILES['file'])) {
 

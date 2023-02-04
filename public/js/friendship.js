@@ -1,4 +1,5 @@
 const friendshipButtons = document.querySelectorAll(".fa-hand-sparkles");
+const checkbox = document.getElementById("friends");
 
 function makeFriend() {
     const friendshipStatus = this;
@@ -23,4 +24,30 @@ function makeFriend() {
     }
 }
 
+function showMyFriends() {
+    friendshipButtons.forEach(friendshipButton => {
+        if(friendshipButton.id === "add") {
+            friendshipButton.parentElement.parentElement.parentElement.style.display = "none";
+        }
+    })
+}
+
+function showAllUsers() {
+    friendshipButtons.forEach(friendshipButton => {
+            friendshipButton.parentElement.parentElement.parentElement.style.display = "flex";
+    })
+}
+
+function reactToChecking() {
+    if(checkbox.checked) {
+        showMyFriends();
+    }
+    else {
+        showAllUsers();
+    }
+}
+
 friendshipButtons.forEach(button => button.addEventListener("click", makeFriend));
+checkbox.addEventListener("change", reactToChecking);
+//--------------------------------------------------------
+

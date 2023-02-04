@@ -2,6 +2,7 @@
 
 <head>
     <script type="text/javascript" src="./public/js/map-addact.js" defer></script>
+    <link rel="stylesheet" type="text/css" href="public/css/activities.css">
 
     <script src='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css' rel='stylesheet' />
@@ -41,8 +42,8 @@ include_once "navbar.php";
                             <button type="button" id="geocoder-btn" value="Zatwierdź" readonly onclick="getElementById('place-input').value = addMarker();";>Zatwierdź</button>
                         </div>
                         <input name="place" type="text" id="place-input" value="" readonly>
-                        <input name="sport" placeholder="Dyscyplina" list="sporty">
-                        <datalist id="sporty">
+                        <input name="sport" placeholder="Dyscyplina" list="sports">
+                        <datalist id="sports">
                             <option value="Bieganie">
                             <option value="Rower">
                             <option value="Rolki">

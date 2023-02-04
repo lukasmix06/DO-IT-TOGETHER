@@ -15,8 +15,8 @@ search.addEventListener("keyup", function(event) {
         }).then(function (response) {
             return response.json();
         }).then(function (activities) {
-            activityContainer.innerHTML = ""; //wyczyszczenie aby domyślny widok aktywności się nie wyświetlił
-            loadActivities(activities)
+            //activityContainer.innerHTML = ""; //wyczyszczenie aby domyślny widok aktywności się nie wyświetlił
+            loadActivities(activities);
         });
     //}
 });

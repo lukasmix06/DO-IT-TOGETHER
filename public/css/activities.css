@@ -45,26 +45,6 @@ section.activities {
     margin: 0;
 }
 
-p.description {
-    height: -webkit-fill-available;
-}
-
-.social-section {
-    display: flex;
-    justify-content: flex-start;
-}
-
-.social-section>i {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-content: center;
-    font-size: large;
-    background: white;
-    padding: 0.5em;
-    margin-top: 0.3em;
-}
-
 i#join {
     color: black;
 }
@@ -84,25 +64,6 @@ section.activity-form {
 .activity-form > form {
     display:flex;
     flex-direction: column;
-}
-
-.dropdown {
-    width: 100%;
-    display: flex;
-}
-
-#dropbtn {
-    display: none;
-}
-
-h1 {
-    font-size: 30px;
-    margin: 0;
-}
-
-h2 {
-    margin: 0;
-    font-size: 16px;
 }
 
 .fa-male:before {
@@ -139,24 +100,24 @@ div#map {
     max-width: 100%;
 }
 
-#geocoder-btn {
-    font-size: medium;
-}
-
 #place-input {
     display: none;
 }
 
 #filters{
     display: flex;
-    direction
-    width: 30vw;
+    width: 42vw;
     align-items: center;
     justify-content: center;
 }
 
 #my-activities {
     width: 13px;
+    margin: 0 0.5em;
+}
+
+#sport {
+    width: 13vw;
 }
 
 .date-box {
@@ -168,19 +129,34 @@ div#map {
     margin-right: 3em;
 }
 
-label {
-    font-size: 1.5em;
-}
-
 #date-filters {
     display: flex;
     flex-direction: column;
+}
+
+#sport {
+    width: 12vw;
+    margin: 0em;
+    padding: 0em 0.5em;
 }
 
 #date-to, #date-from {
     width: fit-content;
     margin: 0em;
     padding: 0em 0.5em;
+}
+
+.search-bar {
+    width: 36vw;
+}
+
+button.classic {
+    width: fit-content;
+    margin: auto;
+}
+
+button#geocoder-btn {
+    font-size: medium;
 }
 
 @media only screen and (max-device-width: 420px) {
